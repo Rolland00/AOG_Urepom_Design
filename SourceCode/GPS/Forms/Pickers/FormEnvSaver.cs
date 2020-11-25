@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -40,7 +39,7 @@ namespace AgOpenGPS
         private void cboxVeh_SelectedIndexChanged(object sender, EventArgs e)
         {
             DialogResult result3 = MessageBox.Show(
-                "Overwrite: " + cboxEnv.SelectedItem.ToString() + ".txt", 
+                "Overwrite: " + cboxEnv.SelectedItem.ToString() + ".txt",
                 gStr.gsSaveAndReturn,
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question,

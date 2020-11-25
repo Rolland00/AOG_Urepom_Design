@@ -1,10 +1,4 @@
-﻿using OpenTK;
-using OpenTK.Graphics.OpenGL;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.IO;
+﻿using System;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -33,7 +27,7 @@ namespace AgOpenGPS
             nudEqWidth.Controls[0].Enabled = false;
             nudPasses.Controls[0].Enabled = false;
             nudOffset.Controls[0].Enabled = false;
-            
+
         }
 
         private void FormTram_Load(object sender, EventArgs e)
@@ -110,9 +104,9 @@ namespace AgOpenGPS
                 mf.ABLine.lineArr[idx].origin.northing = mf.ABLine.refPoint1.northing;
 
                 //sin x cos z for endpoints, opposite for additional lines
-                mf.ABLine.lineArr[idx].ref1.easting = mf.ABLine.lineArr[idx].origin.easting - (Math.Sin(mf.ABLine.lineArr[idx].heading) *   1600.0);
+                mf.ABLine.lineArr[idx].ref1.easting = mf.ABLine.lineArr[idx].origin.easting - (Math.Sin(mf.ABLine.lineArr[idx].heading) * 1600.0);
                 mf.ABLine.lineArr[idx].ref1.northing = mf.ABLine.lineArr[idx].origin.northing - (Math.Cos(mf.ABLine.lineArr[idx].heading) * 1600.0);
-                mf.ABLine.lineArr[idx].ref2.easting = mf.ABLine.lineArr[idx].origin.easting + (Math.Sin(mf.ABLine.lineArr[idx].heading) *   1600.0);
+                mf.ABLine.lineArr[idx].ref2.easting = mf.ABLine.lineArr[idx].origin.easting + (Math.Sin(mf.ABLine.lineArr[idx].heading) * 1600.0);
                 mf.ABLine.lineArr[idx].ref2.northing = mf.ABLine.lineArr[idx].origin.northing + (Math.Cos(mf.ABLine.lineArr[idx].heading) * 1600.0);
             }
 
@@ -201,10 +195,10 @@ namespace AgOpenGPS
             mf.ABLine.abHeading += Math.PI;
             if (mf.ABLine.abHeading > glm.twoPI) mf.ABLine.abHeading -= glm.twoPI;
 
-            mf.ABLine.refABLineP1.easting = mf.ABLine.refPoint1.easting - (Math.Sin(mf.ABLine.abHeading) *   1600.0);
+            mf.ABLine.refABLineP1.easting = mf.ABLine.refPoint1.easting - (Math.Sin(mf.ABLine.abHeading) * 1600.0);
             mf.ABLine.refABLineP1.northing = mf.ABLine.refPoint1.northing - (Math.Cos(mf.ABLine.abHeading) * 1600.0);
-                                                                                                             
-            mf.ABLine.refABLineP2.easting = mf.ABLine.refPoint1.easting + (Math.Sin(mf.ABLine.abHeading) *   1600.0);
+
+            mf.ABLine.refABLineP2.easting = mf.ABLine.refPoint1.easting + (Math.Sin(mf.ABLine.abHeading) * 1600.0);
             mf.ABLine.refABLineP2.northing = mf.ABLine.refPoint1.northing + (Math.Cos(mf.ABLine.abHeading) * 1600.0);
 
             mf.ABLine.refPoint2.easting = mf.ABLine.refABLineP2.easting;
@@ -269,7 +263,7 @@ namespace AgOpenGPS
 
         private void nudEqWidth_ValueChanged(object sender, EventArgs e)
         {
-            mf.tram.tramWidth  = (double)nudEqWidth.Value;
+            mf.tram.tramWidth = (double)nudEqWidth.Value;
             Properties.Settings.Default.setTram_eqWidth = mf.tram.tramWidth;
             Properties.Settings.Default.Save();
             mf.ABLine.BuildTram();
@@ -295,14 +289,14 @@ namespace AgOpenGPS
         private void nudWheelSpacing_Enter(object sender, EventArgs e)
         {
             mf.KeypadToNUD((NumericUpDown)sender);
-            btnCancel.Focus();        
+            btnCancel.Focus();
         }
 
         private void btnMode_Click(object sender, EventArgs e)
         {
             mf.tram.displayMode++;
             if (mf.tram.displayMode > 3) mf.tram.displayMode = 0;
-            
+
             switch (mf.tram.displayMode)
             {
                 case 0:

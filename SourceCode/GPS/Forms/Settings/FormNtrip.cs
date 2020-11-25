@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net;
 using System.Net.Sockets;
-using System.Windows.Forms;
 using System.Text;
 using System.Threading;
-using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace AgOpenGPS
 {
@@ -237,7 +237,7 @@ namespace AgOpenGPS
 
                     for (int i = 0; i < words.Length; i++)
                     {
-                        string [] words2 = words[i].Split(';');
+                        string[] words2 = words[i].Split(';');
 
                         if (words2[0] == "STR")
                         {

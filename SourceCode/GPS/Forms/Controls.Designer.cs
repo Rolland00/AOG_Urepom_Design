@@ -1028,9 +1028,13 @@ namespace AgOpenGPS
                         yt.Previous_skip = 1;
                     }
                 }
+                else
+                {
+                    yt.ResetCreatedYouTurn();
+                }
                 //fin
 
-                    yt.ResetCreatedYouTurn();
+                    
 
                 if (ABLine.isBtnABLineOn || curve.isBtnCurveOn)
                 {

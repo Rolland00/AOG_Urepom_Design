@@ -70,15 +70,15 @@ namespace AgOpenGPS
                 GL.LineWidth(mf.ABLine.lineWidth);
                 GL.Color3(0.96, 0.2f, 0.2f);
                 GL.Begin(PrimitiveType.Lines);
-                    for (int h = 0; h < ptCount; h++) GL.Vertex3(refList[h].easting, refList[h].northing, 0);
+                for (int h = 0; h < ptCount; h++) GL.Vertex3(refList[h].easting, refList[h].northing, 0);
                 if (!mf.curve.isCurveSet)
                 {
                     GL.Color3(0.930f, 0.0692f, 0.260f);
                     ptCount--;
                     GL.Vertex3(refList[ptCount].easting, refList[ptCount].northing, 0);
-                    #pragma warning disable CS1690 // Accessing a member on a field of a marshal-by-reference class may cause a runtime exception
+#pragma warning disable CS1690 // Accessing a member on a field of a marshal-by-reference class may cause a runtime exception
                     GL.Vertex3(mf.pivotAxlePos.easting, mf.pivotAxlePos.northing, 0);
-                    #pragma warning restore CS1690 // Accessing a member on a field of a marshal-by-reference class may cause a runtime exception
+#pragma warning restore CS1690 // Accessing a member on a field of a marshal-by-reference class may cause a runtime exception
                 }
                 GL.End();
 
@@ -269,7 +269,7 @@ namespace AgOpenGPS
                 for (int j = 0; j < refList.Count; j += 4)
                 {
                     tramLineP1.easting = (hsin * ((mf.tram.tramWidth * (pass + i)) - mf.tram.halfWheelTrack + mf.tram.abOffset)) + refList[j].easting;
-                    tramLineP1.northing = (hcos * ((mf.tram.tramWidth * (pass + i)) -mf.tram.halfWheelTrack + mf.tram.abOffset)) + refList[j].northing;
+                    tramLineP1.northing = (hcos * ((mf.tram.tramWidth * (pass + i)) - mf.tram.halfWheelTrack + mf.tram.abOffset)) + refList[j].northing;
 
                     if (isBndExist)
                     {
@@ -277,7 +277,7 @@ namespace AgOpenGPS
                         {
                             tramArr.Add(tramLineP1);
 
-                            tramLineP1.easting =  (hsin * mf.tram.wheelTrack) + tramLineP1.easting;
+                            tramLineP1.easting = (hsin * mf.tram.wheelTrack) + tramLineP1.easting;
                             tramLineP1.northing = (hcos * mf.tram.wheelTrack) + tramLineP1.northing;
                             tramArr.Add(tramLineP1);
                         }
@@ -286,12 +286,12 @@ namespace AgOpenGPS
                     {
                         tramArr.Add(tramLineP1);
 
-                        tramLineP1.easting =  (hsin * mf.tram.wheelTrack) + tramLineP1.easting;
+                        tramLineP1.easting = (hsin * mf.tram.wheelTrack) + tramLineP1.easting;
                         tramLineP1.northing = (hcos * mf.tram.wheelTrack) + tramLineP1.northing;
                         tramArr.Add(tramLineP1);
                     }
                 }
-            }            
+            }
         }
 
         //for calculating for display the averaged new line
@@ -463,20 +463,21 @@ namespace AgOpenGPS
             else piSide = -glm.PIBy2;
             double widthMinusOverlap;
             //move the ABLine over based on the overlap amount set in vehicle
-            if (mf.tool.toolOffset != 0) {
+            if (mf.tool.toolOffset != 0)
+            {
                 widthMinusOverlap = mf.tool.toolWidth / 2 - mf.tool.toolOverlap;
-            } 
+            }
             else
             {
-                 widthMinusOverlap = mf.tool.toolWidth  - mf.tool.toolOverlap;
+                widthMinusOverlap = mf.tool.toolWidth - mf.tool.toolOverlap;
             }
-            
+
 
             howManyPathsAway = Math.Round(minDistance / widthMinusOverlap, 0, MidpointRounding.AwayFromZero);
 
             curveNumber = howManyPathsAway;
             if (distanceFromRefLine < 0) curveNumber = -curveNumber;
-            
+
             //double toolOffset = mf.tool.toolOffset;
 
             //build the current line
@@ -586,7 +587,7 @@ namespace AgOpenGPS
                     if (abFixHeadingDelta > 0.74) abFixHeadingDelta = 0.74;
                     if (abFixHeadingDelta < -0.74) abFixHeadingDelta = -0.74;
 
-                    steerAngleCu = Math.Atan((distanceFromCurrentLine * mf.vehicle.stanleyGain) 
+                    steerAngleCu = Math.Atan((distanceFromCurrentLine * mf.vehicle.stanleyGain)
                         / ((Math.Abs(mf.pn.speed) * 0.277777) + 1));
 
                     if (steerAngleCu > 0.74) steerAngleCu = 0.74;

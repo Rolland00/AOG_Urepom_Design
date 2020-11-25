@@ -140,12 +140,11 @@
             this.btnSelectCurve.Font = new System.Drawing.Font("Tahoma", 14.25F);
             this.btnSelectCurve.Image = global::AgOpenGPS.Properties.Resources.CurveOn;
             this.btnSelectCurve.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSelectCurve.Location = new System.Drawing.Point(850, 589);
+            this.btnSelectCurve.Location = new System.Drawing.Point(755, 449);
             this.btnSelectCurve.Name = "btnSelectCurve";
-            this.btnSelectCurve.Size = new System.Drawing.Size(82, 85);
+            this.btnSelectCurve.Size = new System.Drawing.Size(82, 78);
             this.btnSelectCurve.TabIndex = 321;
             this.btnSelectCurve.UseVisualStyleBackColor = false;
-            this.btnSelectCurve.Visible = false;
             this.btnSelectCurve.Click += new System.EventHandler(this.btnSelectCurve_Click);
             // 
             // btnSelectABLine
@@ -158,12 +157,11 @@
             this.btnSelectABLine.Font = new System.Drawing.Font("Tahoma", 14.25F);
             this.btnSelectABLine.Image = global::AgOpenGPS.Properties.Resources.ABLineOn;
             this.btnSelectABLine.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSelectABLine.Location = new System.Drawing.Point(788, 642);
+            this.btnSelectABLine.Location = new System.Drawing.Point(755, 588);
             this.btnSelectABLine.Name = "btnSelectABLine";
-            this.btnSelectABLine.Size = new System.Drawing.Size(82, 85);
+            this.btnSelectABLine.Size = new System.Drawing.Size(82, 75);
             this.btnSelectABLine.TabIndex = 322;
             this.btnSelectABLine.UseVisualStyleBackColor = false;
-            this.btnSelectABLine.Visible = false;
             this.btnSelectABLine.Click += new System.EventHandler(this.btnSelectABLine_Click);
             // 
             // panel1
@@ -184,12 +182,11 @@
             this.btnDeleteCurve.Font = new System.Drawing.Font("Tahoma", 14.25F);
             this.btnDeleteCurve.Image = global::AgOpenGPS.Properties.Resources.FileDelete;
             this.btnDeleteCurve.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteCurve.Location = new System.Drawing.Point(938, 634);
+            this.btnDeleteCurve.Location = new System.Drawing.Point(910, 585);
             this.btnDeleteCurve.Name = "btnDeleteCurve";
             this.btnDeleteCurve.Size = new System.Drawing.Size(88, 78);
             this.btnDeleteCurve.TabIndex = 325;
             this.btnDeleteCurve.UseVisualStyleBackColor = false;
-            this.btnDeleteCurve.Visible = false;
             this.btnDeleteCurve.Click += new System.EventHandler(this.btnDeleteCurve_Click);
             // 
             // btnDeleteABLine
@@ -202,65 +199,60 @@
             this.btnDeleteABLine.Font = new System.Drawing.Font("Tahoma", 14.25F);
             this.btnDeleteABLine.Image = global::AgOpenGPS.Properties.Resources.FileDelete;
             this.btnDeleteABLine.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDeleteABLine.Location = new System.Drawing.Point(910, 498);
+            this.btnDeleteABLine.Location = new System.Drawing.Point(910, 449);
             this.btnDeleteABLine.Name = "btnDeleteABLine";
             this.btnDeleteABLine.Size = new System.Drawing.Size(88, 78);
             this.btnDeleteABLine.TabIndex = 326;
             this.btnDeleteABLine.UseVisualStyleBackColor = false;
-            this.btnDeleteABLine.Visible = false;
             this.btnDeleteABLine.Click += new System.EventHandler(this.btnDeleteABLine_Click);
             // 
             // lblNumCu
             // 
             this.lblNumCu.Enabled = false;
             this.lblNumCu.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumCu.Location = new System.Drawing.Point(821, 452);
+            this.lblNumCu.Location = new System.Drawing.Point(824, 419);
             this.lblNumCu.Margin = new System.Windows.Forms.Padding(0);
             this.lblNumCu.Name = "lblNumCu";
             this.lblNumCu.Size = new System.Drawing.Size(35, 26);
             this.lblNumCu.TabIndex = 327;
             this.lblNumCu.Text = "1";
             this.lblNumCu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblNumCu.Visible = false;
             // 
             // lblNumAB
             // 
             this.lblNumAB.Enabled = false;
             this.lblNumAB.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumAB.Location = new System.Drawing.Point(897, 670);
+            this.lblNumAB.Location = new System.Drawing.Point(824, 558);
             this.lblNumAB.Margin = new System.Windows.Forms.Padding(0);
             this.lblNumAB.Name = "lblNumAB";
             this.lblNumAB.Size = new System.Drawing.Size(35, 26);
             this.lblNumAB.TabIndex = 328;
             this.lblNumAB.Text = "2";
             this.lblNumAB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblNumAB.Visible = false;
             // 
             // lblABSelected
             // 
             this.lblABSelected.Enabled = false;
             this.lblABSelected.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblABSelected.Location = new System.Drawing.Point(786, 660);
+            this.lblABSelected.Location = new System.Drawing.Point(735, 558);
             this.lblABSelected.Margin = new System.Windows.Forms.Padding(0);
             this.lblABSelected.Name = "lblABSelected";
             this.lblABSelected.Size = new System.Drawing.Size(35, 26);
             this.lblABSelected.TabIndex = 330;
             this.lblABSelected.Text = "1";
             this.lblABSelected.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblABSelected.Visible = false;
             // 
             // lblCurveSelected
             // 
             this.lblCurveSelected.Enabled = false;
             this.lblCurveSelected.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurveSelected.Location = new System.Drawing.Point(729, 514);
+            this.lblCurveSelected.Location = new System.Drawing.Point(735, 420);
             this.lblCurveSelected.Margin = new System.Windows.Forms.Padding(0);
             this.lblCurveSelected.Name = "lblCurveSelected";
             this.lblCurveSelected.Size = new System.Drawing.Size(35, 26);
             this.lblCurveSelected.TabIndex = 329;
             this.lblCurveSelected.Text = "1";
             this.lblCurveSelected.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblCurveSelected.Visible = false;
             // 
             // btnCancelTouch
             // 
@@ -285,54 +277,50 @@
             this.label1.AutoSize = true;
             this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(784, 454);
+            this.label1.Location = new System.Drawing.Point(779, 422);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 23);
             this.label1.TabIndex = 332;
             this.label1.Text = "of";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(881, 673);
+            this.label2.Location = new System.Drawing.Point(779, 561);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 23);
             this.label2.TabIndex = 333;
             this.label2.Text = "of";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2.Visible = false;
             // 
             // lblABLineName
             // 
             this.lblABLineName.Enabled = false;
             this.lblABLineName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblABLineName.Location = new System.Drawing.Point(728, 257);
+            this.lblABLineName.Location = new System.Drawing.Point(728, 672);
             this.lblABLineName.Margin = new System.Windows.Forms.Padding(0);
             this.lblABLineName.Name = "lblABLineName";
-            this.lblABLineName.Size = new System.Drawing.Size(284, 26);
+            this.lblABLineName.Size = new System.Drawing.Size(278, 26);
             this.lblABLineName.TabIndex = 334;
             this.lblABLineName.Text = "Name";
             this.lblABLineName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblABLineName.Visible = false;
             // 
             // lblCurveName
             // 
             this.lblCurveName.Enabled = false;
             this.lblCurveName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurveName.Location = new System.Drawing.Point(722, 408);
+            this.lblCurveName.Location = new System.Drawing.Point(733, 530);
             this.lblCurveName.Margin = new System.Windows.Forms.Padding(0);
             this.lblCurveName.Name = "lblCurveName";
-            this.lblCurveName.Size = new System.Drawing.Size(284, 26);
+            this.lblCurveName.Size = new System.Drawing.Size(273, 26);
             this.lblCurveName.TabIndex = 335;
             this.lblCurveName.Text = "Name";
             this.lblCurveName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCurveName.Visible = false;
             // 
             // label3
             // 
@@ -350,14 +338,13 @@
             // 
             this.label4.Enabled = false;
             this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(740, 408);
+            this.label4.Location = new System.Drawing.Point(736, 383);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(266, 26);
             this.label4.TabIndex = 337;
             this.label4.Text = "gsSelect";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.Visible = false;
             // 
             // btnDrawSections
             // 
@@ -368,7 +355,7 @@
             this.btnDrawSections.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDrawSections.Font = new System.Drawing.Font("Tahoma", 14.25F);
             this.btnDrawSections.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDrawSections.Location = new System.Drawing.Point(732, 642);
+            this.btnDrawSections.Location = new System.Drawing.Point(640, 609);
             this.btnDrawSections.Name = "btnDrawSections";
             this.btnDrawSections.Size = new System.Drawing.Size(89, 63);
             this.btnDrawSections.TabIndex = 340;
@@ -381,7 +368,7 @@
             // 
             this.label6.Enabled = false;
             this.label6.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(928, 515);
+            this.label6.Location = new System.Drawing.Point(637, 572);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 25);
@@ -416,7 +403,7 @@
             // 
             this.label5.Enabled = false;
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(764, 411);
+            this.label5.Location = new System.Drawing.Point(510, 491);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(146, 57);

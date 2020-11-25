@@ -3,7 +3,6 @@
 using System;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -38,7 +37,7 @@ namespace AgOpenGPS
             tboxHeading.Enabled = false;
             tboxABLineName.Text = "";
             tboxABLineName.Enabled = false;
-            
+
             //small window
             ShowFullPanel(true);
 
@@ -159,7 +158,7 @@ namespace AgOpenGPS
 
                 lvLines.Enabled = false;
                 btnAddToFile.Focus();
-                tboxABLineName.Text = (Math.Round(glm.toDegrees(mf.ABLine.abHeading), 1)).ToString(CultureInfo.InvariantCulture) 
+                tboxABLineName.Text = (Math.Round(glm.toDegrees(mf.ABLine.abHeading), 1)).ToString(CultureInfo.InvariantCulture)
                     + "\u00B0" +
                     mf.FindDirection(mf.ABLine.abHeading) + DateTime.Now.ToString("hh:mm:ss", CultureInfo.InvariantCulture);
             }
@@ -271,9 +270,9 @@ namespace AgOpenGPS
                     mf.ABLine.lineArr[idx].origin.northing = mf.ABLine.refPoint1.northing;
 
                     //sin x cos z for endpoints, opposite for additional lines
-                    mf.ABLine.lineArr[idx].ref1.easting = mf.ABLine.lineArr[idx].origin.easting - (Math.Sin(mf.ABLine.lineArr[idx].heading) *   1600.0);
+                    mf.ABLine.lineArr[idx].ref1.easting = mf.ABLine.lineArr[idx].origin.easting - (Math.Sin(mf.ABLine.lineArr[idx].heading) * 1600.0);
                     mf.ABLine.lineArr[idx].ref1.northing = mf.ABLine.lineArr[idx].origin.northing - (Math.Cos(mf.ABLine.lineArr[idx].heading) * 1600.0);
-                    mf.ABLine.lineArr[idx].ref2.easting = mf.ABLine.lineArr[idx].origin.easting + (Math.Sin(mf.ABLine.lineArr[idx].heading) *   1600.0);
+                    mf.ABLine.lineArr[idx].ref2.easting = mf.ABLine.lineArr[idx].origin.easting + (Math.Sin(mf.ABLine.lineArr[idx].heading) * 1600.0);
                     mf.ABLine.lineArr[idx].ref2.northing = mf.ABLine.lineArr[idx].origin.northing + (Math.Cos(mf.ABLine.lineArr[idx].heading) * 1600.0);
 
 
@@ -339,9 +338,9 @@ namespace AgOpenGPS
                     mf.ABLine.lineArr[idx].origin.northing = mf.ABLine.refPoint1.northing;
 
                     //sin x cos z for endpoints, opposite for additional lines
-                    mf.ABLine.lineArr[idx].ref1.easting = mf.ABLine.lineArr[idx].origin.easting - (Math.Sin(mf.ABLine.lineArr[idx].heading) *   1600.0);
+                    mf.ABLine.lineArr[idx].ref1.easting = mf.ABLine.lineArr[idx].origin.easting - (Math.Sin(mf.ABLine.lineArr[idx].heading) * 1600.0);
                     mf.ABLine.lineArr[idx].ref1.northing = mf.ABLine.lineArr[idx].origin.northing - (Math.Cos(mf.ABLine.lineArr[idx].heading) * 1600.0);
-                    mf.ABLine.lineArr[idx].ref2.easting = mf.ABLine.lineArr[idx].origin.easting + (Math.Sin(mf.ABLine.lineArr[idx].heading) *   1600.0);
+                    mf.ABLine.lineArr[idx].ref2.easting = mf.ABLine.lineArr[idx].origin.easting + (Math.Sin(mf.ABLine.lineArr[idx].heading) * 1600.0);
                     mf.ABLine.lineArr[idx].ref2.northing = mf.ABLine.lineArr[idx].origin.northing + (Math.Cos(mf.ABLine.lineArr[idx].heading) * 1600.0);
 
 
@@ -517,7 +516,7 @@ namespace AgOpenGPS
                 btnAddToFile.Visible = true;
                 btnAddAndGo.Visible = true;
 
-                btnAPoint.Visible = false ;
+                btnAPoint.Visible = false;
                 btnBPoint.Visible = false;
                 tboxHeading.Visible = false;
                 cboxHeading.Visible = false;

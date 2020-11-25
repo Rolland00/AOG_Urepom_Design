@@ -609,9 +609,9 @@ namespace AgOpenGPS
                 oglMain.Width = Width;
                 if (isFullScreen) oglMain.Width += 20;
             }
-
+            panelSim.Width = Width / 2;
             panelSim.Left = Width / 2 - panelSim.Width / 2;
-            panelSim.Width = Width - statusStripLeft.Width - 350;
+            
 
             //if (isFullScreen) panelFieldData.Width += 20;
 

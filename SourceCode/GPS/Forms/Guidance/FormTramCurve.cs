@@ -1,10 +1,4 @@
-﻿using OpenTK;
-using OpenTK.Graphics.OpenGL;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.IO;
+﻿using System;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -36,9 +30,9 @@ namespace AgOpenGPS
         }
 
         private void FormTram_Load(object sender, EventArgs e)
-        { 
+        {
             nudSnapAdj.ValueChanged -= nudSnapAdj_ValueChanged;
-            snapAdj = (Math.Round((mf.tool.toolWidth - mf.tool.toolOverlap)/2.0,3));
+            snapAdj = (Math.Round((mf.tool.toolWidth - mf.tool.toolOverlap) / 2.0, 3));
             nudSnapAdj.Value = (decimal)snapAdj;
             nudSnapAdj.ValueChanged += nudSnapAdj_ValueChanged;
 
@@ -245,7 +239,7 @@ namespace AgOpenGPS
 
         private void nudEqWidth_ValueChanged(object sender, EventArgs e)
         {
-            mf.tram.tramWidth  = (double)nudEqWidth.Value;
+            mf.tram.tramWidth = (double)nudEqWidth.Value;
             Properties.Settings.Default.setTram_eqWidth = mf.tram.tramWidth;
             Properties.Settings.Default.Save();
             mf.curve.BuildTram();
@@ -272,7 +266,7 @@ namespace AgOpenGPS
         private void nudWheelSpacing_Enter(object sender, EventArgs e)
         {
             mf.KeypadToNUD((NumericUpDown)sender);
-            btnCancel.Focus();        
+            btnCancel.Focus();
         }
 
         private void btnMode_Click(object sender, EventArgs e)

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -119,7 +117,7 @@ namespace AgOpenGPS
                     if (mf.curve.numCurveLineSelected > mf.curve.numCurveLines) mf.curve.numCurveLineSelected = mf.curve.numCurveLines;
 
                     //array number is 1 less since it starts at zero
-                    int cnt = mf.curve.curveArr.Count-1;
+                    int cnt = mf.curve.curveArr.Count - 1;
 
                     mf.curve.curveArr[cnt].Name = textBox1.Text.Trim();
                     mf.curve.curveArr[cnt].aveHeading = mf.curve.aveLineHeading;
@@ -153,7 +151,7 @@ namespace AgOpenGPS
                 var form2 = new FormTimedMessage(2000, gStr.gsNoABCurveCreated, gStr.gsCompleteAnABCurveLineFirst);
                 form2.Show();
                 textBox1.BackColor = SystemColors.Window;
-            }            
+            }
         }
         private void btnAddAndGo_Click(object sender, EventArgs e)
         {
@@ -279,8 +277,8 @@ namespace AgOpenGPS
 
                 textBox1.BackColor = Color.LightGreen;
                 textBox1.Enabled = true;
-                textBox1.Text = (Math.Round(glm.toDegrees(mf.curve.aveLineHeading), 1)).ToString(CultureInfo.InvariantCulture) 
-                    + "\u00B0" + mf.FindDirection(mf.curve.aveLineHeading) 
+                textBox1.Text = (Math.Round(glm.toDegrees(mf.curve.aveLineHeading), 1)).ToString(CultureInfo.InvariantCulture)
+                    + "\u00B0" + mf.FindDirection(mf.curve.aveLineHeading)
                     + DateTime.Now.ToString("hh:mm:ss", CultureInfo.InvariantCulture);
             }
             else
@@ -344,7 +342,7 @@ namespace AgOpenGPS
                 }
 
                 mf.FileSaveCurveLines();
-            }            
+            }
         }
 
         private void btnListUse_Click(object sender, EventArgs e)
@@ -469,7 +467,7 @@ namespace AgOpenGPS
                 btnListUse.Enabled = false;
             }
         }
-        
+
         private void FormABCurve_FormClosing(object sender, FormClosingEventArgs e)
         {
             //if (this.Width < 300) e.Cancel = true;
@@ -517,8 +515,8 @@ namespace AgOpenGPS
 
         private void btnCancelMain_Click(object sender, EventArgs e)
         {
-                                mf.curve.numCurveLines = mf.curve.curveArr.Count;
-                    if (mf.curve.numCurveLineSelected > mf.curve.numCurveLines) mf.curve.numCurveLineSelected = mf.curve.numCurveLines;
+            mf.curve.numCurveLines = mf.curve.curveArr.Count;
+            if (mf.curve.numCurveLineSelected > mf.curve.numCurveLines) mf.curve.numCurveLineSelected = mf.curve.numCurveLines;
 
             if (mf.curve.numCurveLineSelected < originalSelected)
             {

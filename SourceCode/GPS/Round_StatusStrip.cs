@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing;
+using System.Windows.Forms;
 
 namespace AgOpenGPS
 {
-    public class Round_StatusStrip: StatusStrip
+    public class Round_StatusStrip : StatusStrip
     {
-GraphicsPath GetRoundPath(RectangleF Rect, int radius)
+        GraphicsPath GetRoundPath(RectangleF Rect, int radius)
         {
             float r2 = radius / 2f;
             GraphicsPath GraphPath = new GraphicsPath();

@@ -754,7 +754,7 @@ namespace AgOpenGPS
                     if (abFixHeadingDelta > 0.74) abFixHeadingDelta = 0.74;
                     if (abFixHeadingDelta < -0.74) abFixHeadingDelta = -0.74;
 
-                    steerAngleCT = Math.Atan((distanceFromCurrentLine * mf.vehicle.stanleyGain) 
+                    steerAngleCT = Math.Atan((distanceFromCurrentLine * mf.vehicle.stanleyGain)
                         / ((Math.Abs(mf.pn.speed) * 0.277777) + 1));
 
                     if (steerAngleCT > 0.74) steerAngleCT = 0.74;

@@ -29,7 +29,7 @@ namespace AgOpenGPS
         public void DrawFieldSurface()
         {
             Color field = mf.fieldColorDay;
-            if (!mf.isDay)  field = mf.fieldColorNight;
+            if (!mf.isDay) field = mf.fieldColorNight;
 
             GL.Enable(EnableCap.Texture2D);
             GL.Color3(field.R, field.G, field.B);
@@ -79,8 +79,8 @@ namespace AgOpenGPS
         {
             northingMax = northing + 5000.0;
             northingMin = northing - 5000.0;
-            eastingMax = easting +   5000.0;
-            eastingMin = easting -   5000.0;
+            eastingMax = easting + 5000.0;
+            eastingMin = easting - 5000.0;
         }
 
         public void checkZoomWorldGrid(double northing, double easting)

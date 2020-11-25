@@ -34,6 +34,7 @@
             this.nudSpacing = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.deleteContourPaths_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudPass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSpacing)).BeginInit();
             this.SuspendLayout();
@@ -81,10 +82,10 @@
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btnOk.Image = global::AgOpenGPS.Properties.Resources.OK64;
-            this.btnOk.Location = new System.Drawing.Point(341, 361);
+            this.btnOk.Location = new System.Drawing.Point(354, 361);
             this.btnOk.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(129, 80);
+            this.btnOk.Size = new System.Drawing.Size(117, 80);
             this.btnOk.TabIndex = 1;
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOk.UseVisualStyleBackColor = true;
@@ -135,13 +136,32 @@
             this.btnCancel.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnCancel.Image = global::AgOpenGPS.Properties.Resources.Cancel64;
-            this.btnCancel.Location = new System.Drawing.Point(225, 360);
+            this.btnCancel.Location = new System.Drawing.Point(265, 361);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(91, 81);
+            this.btnCancel.Size = new System.Drawing.Size(82, 81);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // deleteContourPaths_btn
+            // 
+            this.deleteContourPaths_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.deleteContourPaths_btn.AutoSize = true;
+            this.deleteContourPaths_btn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.deleteContourPaths_btn.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Bold);
+            this.deleteContourPaths_btn.ForeColor = System.Drawing.Color.Black;
+            this.deleteContourPaths_btn.Image = global::AgOpenGPS.Properties.Resources.HideContour;
+            this.deleteContourPaths_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteContourPaths_btn.Location = new System.Drawing.Point(119, 362);
+            this.deleteContourPaths_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.deleteContourPaths_btn.Name = "deleteContourPaths_btn";
+            this.deleteContourPaths_btn.Size = new System.Drawing.Size(133, 80);
+            this.deleteContourPaths_btn.TabIndex = 254;
+            this.deleteContourPaths_btn.Text = "Reset";
+            this.deleteContourPaths_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.deleteContourPaths_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.deleteContourPaths_btn.Click += new System.EventHandler(this.deleteContourPaths_btn_Click);
             // 
             // FormMakeBndCon
             // 
@@ -149,8 +169,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AgOpenGPS.Properties.Resources.MakeBoundaryContour;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(484, 461);
+            this.ClientSize = new System.Drawing.Size(485, 461);
             this.ControlBox = false;
+            this.Controls.Add(this.deleteContourPaths_btn);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nudSpacing);
@@ -181,5 +202,6 @@
         private System.Windows.Forms.NumericUpDown nudSpacing;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button deleteContourPaths_btn;
     }
 }

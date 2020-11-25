@@ -22,7 +22,7 @@ namespace AgOpenGPS
             //winform initialization
             InitializeComponent();
 
-            
+
             this.Text = gStr.gsUTurn;
 
             // U Turn tab
@@ -114,13 +114,13 @@ namespace AgOpenGPS
             gStr.gsTurnOn});
 
             // Edit tab
-            tabEdit.Text = gStr.gsEdit;           
+            tabEdit.Text = gStr.gsEdit;
             label44.Text = gStr.gsCancel;
             label43.Text = gStr.gsSaveNames;
 
 
 
-    }
+        }
 
         private void FormYouTurn_Load(object sender, EventArgs e)
         {
@@ -855,7 +855,7 @@ namespace AgOpenGPS
 
         private void cboxRowWidth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             mf.yt.rowSkipsWidth = cboxRowWidth.SelectedIndex + 1;
         }
 

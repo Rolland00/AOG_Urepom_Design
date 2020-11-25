@@ -301,7 +301,7 @@
             this.SectionButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.SectionButton.Size = new System.Drawing.Size(192, 65);
             this.SectionButton.TabIndex = 330;
-            this.SectionButton.Text = "UTurn Always On";
+            this.SectionButton.Text = "Section Button";
             this.SectionButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.SectionButton.UseVisualStyleBackColor = true;
             // 
@@ -319,6 +319,7 @@
             this.Uturn_without_Autosteer.Text = "Uturn without Autosteer";
             this.Uturn_without_Autosteer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Uturn_without_Autosteer.UseVisualStyleBackColor = true;
+            this.Uturn_without_Autosteer.Visible = false;
             // 
             // FormDisplayOptions
             // 

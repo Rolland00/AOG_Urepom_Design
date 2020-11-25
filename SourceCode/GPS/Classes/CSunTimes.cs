@@ -18,9 +18,9 @@ internal sealed class CSunTimes
     private double[] mVHzArr = new double[3] { 0.0, 0.0, 0.0 };
 
     #endregion
-    
+
     private static readonly CSunTimes mInstance = new CSunTimes();    // The singleton instance
-    
+
     private CSunTimes() { }
 
     public static CSunTimes Instance

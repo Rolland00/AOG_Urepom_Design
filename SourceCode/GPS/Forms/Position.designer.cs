@@ -1,4 +1,4 @@
-﻿//Please, if you use this, share the improvements
+﻿﻿//Please, if you use this, share the improvements
 
 using System;
 using System.Collections.Generic;
@@ -624,120 +624,57 @@ namespace AgOpenGPS
                     mc.isOutOfBounds = false;
 
                     //do the auto youturn logic if everything is on.
-
-                    if (yt.isYouTurnBtnOn) //ajout max (enlever && isAutoSteerBtnOn
+                    if (yt.isYouTurnBtnOn && isAutoSteerBtnOn)
                     {
-                        //ajout max
-                        if (!isUturn_without_Autosteer)
+                        //if we are too much off track > 1.3m, kill the diagnostic creation, start again
+                        if (crossTrackError > 1300 && !yt.isYouTurnTriggered)
                         {
-                            if (isAutoSteerBtnOn)
+                            yt.ResetCreatedYouTurn();
+                        }
+                        else
+                        {
+                            //now check to make sure we are not in an inner turn boundary - drive thru is ok
+                            if (yt.youTurnPhase != 3)
                             {
-                                if (crossTrackError > 1300 && !yt.isYouTurnTriggered)
+                                if (crossTrackError > 500)
                                 {
                                     yt.ResetCreatedYouTurn();
                                 }
                                 else
                                 {
-                                    //now check to make sure we are not in an inner turn boundary - drive thru is ok
-                                    if (yt.youTurnPhase != 3)
+                                    if (yt.isUsingDubinsTurn)
                                     {
-                                        if (crossTrackError > 500)
-                                        {
-                                            yt.ResetCreatedYouTurn();
-                                        }
-                                        else
-                                        {
-                                            if (yt.isUsingDubinsTurn)
-                                            {
-                                                if (ABLine.isABLineSet) yt.BuildABLineDubinsYouTurn(yt.isYouTurnRight);
-                                                else yt.BuildCurveDubinsYouTurn(yt.isYouTurnRight, pivotAxlePos);
-                                            }
-                                            else
-                                            {
-                                                if (ABLine.isABLineSet) yt.BuildABLinePatternYouTurn(yt.isYouTurnRight);
-                                                else yt.BuildCurvePatternYouTurn(yt.isYouTurnRight, pivotAxlePos);
-                                            }
-                                        }
-                                    }
-                                    else //wait to trigger the actual turn since its made and waiting
-                                    {
-                                        //distance from current pivot to first point of youturn pattern
-                                        distancePivotToTurnLine = glm.Distance(yt.ytList[0], steerAxlePos);
-
-                                        if ((distancePivotToTurnLine <= 20.0) && (distancePivotToTurnLine >= 18.0) && !yt.isYouTurnTriggered)
-
-                                            if (!isBoundAlarming)
-                                            {
-                                                sndBoundaryAlarm.Play();
-                                                isBoundAlarming = true;
-                                            }
-
-                                        //if we are close enough to pattern, trigger.
-                                        if ((distancePivotToTurnLine <= 1.0) && (distancePivotToTurnLine >= 0) && !yt.isYouTurnTriggered)
-                                        {
-                                            yt.YouTurnTrigger();
-                                            isBoundAlarming = false;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (crossTrackError > 1300 && !yt.isYouTurnTriggered)
-                            {
-                                yt.ResetCreatedYouTurn();
-                            }
-                            else
-                            {
-                                //now check to make sure we are not in an inner turn boundary - drive thru is ok
-                                if (yt.youTurnPhase != 3)
-                                {
-                                    if (crossTrackError > 500)
-                                    {
-                                        yt.ResetCreatedYouTurn();
+                                        if (ABLine.isABLineSet) yt.BuildABLineDubinsYouTurn(yt.isYouTurnRight);
+                                        else yt.BuildCurveDubinsYouTurn(yt.isYouTurnRight, pivotAxlePos);
                                     }
                                     else
                                     {
-                                        if (yt.isUsingDubinsTurn)
-                                        {
-                                            if (ABLine.isABLineSet) yt.BuildABLineDubinsYouTurn(yt.isYouTurnRight);
-                                            else yt.BuildCurveDubinsYouTurn(yt.isYouTurnRight, pivotAxlePos);
-                                        }
-                                        else
-                                        {
-                                            if (ABLine.isABLineSet) yt.BuildABLinePatternYouTurn(yt.isYouTurnRight);
-                                            else yt.BuildCurvePatternYouTurn(yt.isYouTurnRight, pivotAxlePos);
-                                        }
-                                    }
-                                }
-                                else //wait to trigger the actual turn since its made and waiting
-                                {
-                                    //distance from current pivot to first point of youturn pattern
-                                    distancePivotToTurnLine = glm.Distance(yt.ytList[0], steerAxlePos);
-
-                                    if ((distancePivotToTurnLine <= 20.0) && (distancePivotToTurnLine >= 18.0) && !yt.isYouTurnTriggered)
-
-                                        if (!isBoundAlarming)
-                                        {
-                                            sndBoundaryAlarm.Play();
-                                            isBoundAlarming = true;
-                                        }
-
-                                    //if we are close enough to pattern, trigger.
-                                    if ((distancePivotToTurnLine <= 1.0) && (distancePivotToTurnLine >= 0) && !yt.isYouTurnTriggered)
-                                    {
-                                        yt.YouTurnTrigger();
-                                        isBoundAlarming = false;
+                                        if (ABLine.isABLineSet) yt.BuildABLinePatternYouTurn(yt.isYouTurnRight);
+                                        else yt.BuildCurvePatternYouTurn(yt.isYouTurnRight, pivotAxlePos);
                                     }
                                 }
                             }
+                            else //wait to trigger the actual turn since its made and waiting
+                            {
+                                //distance from current pivot to first point of youturn pattern
+                                distancePivotToTurnLine = glm.Distance(yt.ytList[0], steerAxlePos);
+
+                                if ((distancePivotToTurnLine <= 20.0) && (distancePivotToTurnLine >= 18.0) && !yt.isYouTurnTriggered)
+
+                                    if (!isBoundAlarming)
+                                    {
+                                        sndBoundaryAlarm.Play();
+                                        isBoundAlarming = true;
+                                    }
+
+                                //if we are close enough to pattern, trigger.
+                                if ((distancePivotToTurnLine <= 1.0) && (distancePivotToTurnLine >= 0) && !yt.isYouTurnTriggered)
+                                {
+                                    yt.YouTurnTrigger();
+                                    isBoundAlarming = false;
+                                }
+                            }
                         }
-                        //fin
-                                //if we are too much off track > 1.3m, kill the diagnostic creation, start again
-                      
-                    
-                
                     } // end of isInWorkingArea
                 }
                 // here is stop logic for out of bounds - in an inner or out the outer turn border.
@@ -750,7 +687,6 @@ namespace AgOpenGPS
                         sim.stepDistance = 0 / 17.86;
                     }
                 }
-
             }
             else
             {
@@ -825,7 +761,7 @@ namespace AgOpenGPS
                 //translate world to the pivot axle
                 pivotAxlePos.easting = pn.fix.easting - (Math.Sin(fixHeading) * vehicle.antennaPivot);
                 pivotAxlePos.northing = pn.fix.northing - (Math.Cos(fixHeading) * vehicle.antennaPivot);
-                //pivotAxlePos.heading = fixHeading;
+                pivotAxlePos.heading = fixHeading;
                 steerAxlePos.easting = pivotAxlePos.easting + (Math.Sin(fixHeading) * vehicle.wheelbase);
                 steerAxlePos.northing = pivotAxlePos.northing + (Math.Cos(fixHeading) * vehicle.wheelbase);
                 steerAxlePos.heading = fixHeading;
@@ -835,7 +771,7 @@ namespace AgOpenGPS
                 //translate world to the pivot axle
                 pivotAxlePos.easting = pn.fix.easting - (Math.Sin(fixHeading) * -vehicle.antennaPivot);
                 pivotAxlePos.northing = pn.fix.northing - (Math.Cos(fixHeading) * -vehicle.antennaPivot);
-                //pivotAxlePos.heading = fixHeading;
+                pivotAxlePos.heading = fixHeading;
                 steerAxlePos.easting = pivotAxlePos.easting + (Math.Sin(fixHeading) * -vehicle.wheelbase);
                 steerAxlePos.northing = pivotAxlePos.northing + (Math.Cos(fixHeading) * -vehicle.wheelbase);
                 steerAxlePos.heading = fixHeading;

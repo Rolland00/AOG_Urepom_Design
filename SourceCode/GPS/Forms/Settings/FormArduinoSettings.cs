@@ -48,12 +48,12 @@ namespace AgOpenGPS
             cboxIsHydOn.Text = gStr.gsEnableHydraulics;
             tabMachine.Text = gStr.gsMachine;
 
-             nudMaxSpeed.Controls[0].Enabled = false;
-             nudMinSpeed.Controls[0].Enabled = false;
+            nudMaxSpeed.Controls[0].Enabled = false;
+            nudMinSpeed.Controls[0].Enabled = false;
             nudMaxCounts.Controls[0].Enabled = false;
             nudRaiseTime.Controls[0].Enabled = false;
             nudLowerTime.Controls[0].Enabled = false;
-             nudAckerman.Controls[0].Enabled = false;
+            nudAckerman.Controls[0].Enabled = false;
 
 
             //select the page as per calling menu or button from mainGPS form
@@ -264,7 +264,7 @@ namespace AgOpenGPS
             mf.mc.ardSteerConfig[mf.mc.arMinSpd] = Properties.Vehicle.Default.setArdSteer_minSpeed;
             mf.mc.ardSteerConfig[mf.mc.arAckermanFix] = Properties.Vehicle.Default.setArdSteer_ackermanFix;
 
-            byte inc = (byte)(Properties.Vehicle.Default.setArdSteer_inclinometer << 6);            
+            byte inc = (byte)(Properties.Vehicle.Default.setArdSteer_inclinometer << 6);
             mf.mc.ardSteerConfig[mf.mc.arIncMaxPulse] = (byte)(inc + (byte)Properties.Vehicle.Default.setArdSteer_maxPulseCounts);
 
             //Machine ---------------------------------------------------------------------------------------------------
@@ -294,7 +294,7 @@ namespace AgOpenGPS
         private void btnSendToMachineArduino_Click(object sender, EventArgs e)
         {
             SaveSettings();
-            
+
             mf.TimedMessageBox(1000, gStr.gsMachinePort, gStr.gsModuleConfiguration);
             mf.SendArduinoSettingsOutMachinePort();
         }

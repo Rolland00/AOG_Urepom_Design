@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Globalization;
 using System.IO;
 using System.Media;
 using System.Net;
@@ -22,6 +21,14 @@ namespace AgOpenGPS
     //the main form object
     public partial class FormGPS : Form
     {
+
+        //ajout max
+
+        Timer timer_btn_Uturn = new Timer();
+        Timer timer_btn_Headland = new Timer();
+        Timer timer_btn_Contour = new Timer();
+        int count_timerbtn = 0;
+        //fin
         #region // Class Props and instances
 
         //list of vec3 points of Dubins shortest path between 2 points - To be converted to RecPt
@@ -262,6 +269,9 @@ namespace AgOpenGPS
         // Constructor, Initializes a new instance of the "FormGPS" class.
         public FormGPS()
         {
+
+
+
             //winform initialization
             InitializeComponent();
 
@@ -419,6 +429,8 @@ namespace AgOpenGPS
 
             //access to font class
             font = new CFont(this);
+
+
         }
 
         private void ZoomByMouseWheel(object sender, MouseEventArgs e)
@@ -445,8 +457,21 @@ namespace AgOpenGPS
         //Initialize items before the form Loads or is visible
         private void FormGPS_Load(object sender, EventArgs e)
         {
-            this.MouseWheel += ZoomByMouseWheel;
 
+            this.MouseWheel += ZoomByMouseWheel;
+            //ajout max
+            timer_btn_Uturn.Enabled = false;
+            timer_btn_Uturn.Interval = 10;
+            timer_btn_Uturn.Tick += new EventHandler(timer_btn_Uturn_Tick);
+
+            timer_btn_Headland.Enabled = false;
+            timer_btn_Headland.Interval = 10;
+            timer_btn_Headland.Tick += new EventHandler(timer_btn_Headland_Tick);
+
+            timer_btn_Contour.Enabled = false;
+            timer_btn_Contour.Interval = 10;
+            timer_btn_Contour.Tick += new EventHandler(timer_btn_Contour_Tick);
+            //fin
 
             if (Settings.Default.setF_workingDirectory == "Default")
                 baseDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AgOpenGPS\\";
@@ -540,8 +565,8 @@ namespace AgOpenGPS
 
             if (spGPS.IsOpen)
             {
-                
-                    simulatorOnToolStripMenuItem.Checked = false;
+
+                simulatorOnToolStripMenuItem.Checked = false;
                 panelSim.Visible = false;
                 timerSim.Enabled = false;
 
@@ -1107,10 +1132,10 @@ namespace AgOpenGPS
             {
                 cboxpRowWidth.Enabled = true;
             }
-            
+
         }
         //fin
-            public void SwapDirection()
+        public void SwapDirection()
         {
             if (!yt.isYouTurnTriggered)
             {
@@ -1119,7 +1144,8 @@ namespace AgOpenGPS
                 {
                     yt.isYouTurnRight = false;
                     //ajout max
-                    if (yt.Alternate_skips == false) { 
+                    if (yt.Alternate_skips == false)
+                    {
 
                         yt.isLastYouTurnRight = !yt.isLastYouTurnRight;
                     }
@@ -1588,7 +1614,94 @@ namespace AgOpenGPS
         }
 
 
+        //ajout max
+        private void btnAutoYouTurn_MouseDown(object sender, MouseEventArgs e)
+        {
+            count_timerbtn = 0;
+            timer_btn_Uturn.Start();
 
+        }
+
+        private void btnAutoYouTurn_MouseUp(object sender, MouseEventArgs e)
+        {
+            timer_btn_Uturn.Stop();
+        }
+
+        private void timer_btn_Uturn_Tick(object sender, EventArgs e)
+        {
+            count_timerbtn++;
+            if (count_timerbtn == 40)
+            {
+                timer_btn_Uturn.Stop();
+                var form = new FormYouTurn(this);
+                form.ShowDialog();
+                cboxpRowWidth.SelectedIndex = Properties.Vehicle.Default.set_youSkipWidth - 1;
+            }
+        }
+
+        private void btnHeadlandOnOff_MouseDown(object sender, MouseEventArgs e)
+        {
+            count_timerbtn = 0;
+            timer_btn_Headland.Start();
+        }
+
+        private void btnHeadlandOnOff_MouseUp(object sender, MouseEventArgs e)
+        {
+            timer_btn_Headland.Stop();
+        }
+        private void timer_btn_Headland_Tick(object sender, EventArgs e)
+        {
+            count_timerbtn++;
+            if (count_timerbtn == 40)
+            {
+                timer_btn_Headland.Stop();
+                if (bnd.bndArr.Count == 0)
+                {
+                    TimedMessageBox(2000, gStr.gsNoBoundary, gStr.gsCreateABoundaryFirst);
+                    return;
+                }
+
+                GetHeadland();
+            }
+        }
+
+        private void btnContour_MouseDown(object sender, MouseEventArgs e)
+        {
+            count_timerbtn = 0;
+            timer_btn_Contour.Start();
+        }
+
+        private void btnContour_MouseUp(object sender, MouseEventArgs e)
+        {
+
+            timer_btn_Contour.Stop();
+        }
+
+        private void timer_btn_Contour_Tick(object sender, EventArgs e)
+        {
+            count_timerbtn++;
+            if (count_timerbtn == 40)
+            {
+                timer_btn_Contour.Stop();
+                using (var form = new FormMakeBndCon(this))
+                {
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK) { }
+                }
+            }
+
+        }
+
+        private void btnHeadlandOnOff_KeyDown(object sender, KeyEventArgs e)
+        {
+            count_timerbtn = 0;
+            timer_btn_Headland.Start();
+        }
+
+        private void btnHeadlandOnOff_KeyUp(object sender, KeyEventArgs e)
+        {
+            timer_btn_Headland.Stop();
+        }
 
 
         //ajout max fin

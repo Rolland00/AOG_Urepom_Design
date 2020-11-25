@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -60,10 +54,10 @@ namespace AgOpenGPS
                     {
                         minDist = temp;
                         place = i;
-                    }                    
+                    }
 
                     //load up the listview
-                    string[] fieldNames = { temp.ToString("#######").PadLeft(10),data[0].Trim(), data[1].Trim(), 
+                    string[] fieldNames = { temp.ToString("#######").PadLeft(10),data[0].Trim(), data[1].Trim(),
                                                     data[2].Trim(), data[3].Trim(), data[4].Trim() };
                     itm = new ListViewItem(fieldNames);
                     lvLines.Items.Add(itm);
@@ -77,7 +71,7 @@ namespace AgOpenGPS
 
         private void btnSite_Click(object sender, EventArgs e)
         {
-             Process.Start(site);
+            Process.Start(site);
         }
 
         private void button1_Click(object sender, EventArgs e)

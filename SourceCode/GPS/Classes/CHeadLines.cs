@@ -113,7 +113,7 @@ namespace AgOpenGPS
             if (ptCount > 1)
             {
                 GL.LineWidth(3);
-                GL.Color3((byte)0,(byte)250,(byte)0);
+                GL.Color3((byte)0, (byte)250, (byte)0);
 
                 while (cntr < ptCount)
                 {

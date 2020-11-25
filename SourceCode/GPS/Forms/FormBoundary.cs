@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -60,7 +58,7 @@ namespace AgOpenGPS
             {
                 if (i < position && i < mf.bnd.bndArr.Count)
                 {
-                    if (i==0)
+                    if (i == 0)
                     {
                         field += 1;
                     }
@@ -107,8 +105,8 @@ namespace AgOpenGPS
                         };
                         e.Click += DriveAround_Click;
                         tableLayoutPanel1.Controls.Add(a, 0, i - position);
-                        tableLayoutPanel1.Controls.Add(d, 3-1, i - position);
-                        tableLayoutPanel1.Controls.Add(e, 4-1, i - position);
+                        tableLayoutPanel1.Controls.Add(d, 3 - 1, i - position);
+                        tableLayoutPanel1.Controls.Add(e, 4 - 1, i - position);
                     }
 
                     if (i < mf.bnd.bndArr.Count && mf.bnd.bndArr[i].isSet)
@@ -133,9 +131,9 @@ namespace AgOpenGPS
                             tableLayoutPanel1.Controls.Add(b, 1, i - position);
                             bb = b;
                         }
-                        Control dd = tableLayoutPanel1.GetControlFromPosition(3-1, i - position);
+                        Control dd = tableLayoutPanel1.GetControlFromPosition(3 - 1, i - position);
                         dd.Visible = true;
-                        Control ee = tableLayoutPanel1.GetControlFromPosition(4-1, i - position);
+                        Control ee = tableLayoutPanel1.GetControlFromPosition(4 - 1, i - position);
                         ee.Visible = true;
 
                         Font backupfont = new Font(aa.Font.FontFamily, 18F, FontStyle.Bold);
@@ -143,7 +141,7 @@ namespace AgOpenGPS
                         if (i == 0)
                         {
                             //cc.Text = "Field";
-                            aa.Text = string.Format(gStr.gsOuter );
+                            aa.Text = string.Format(gStr.gsOuter);
                             field += 1;
                             aa.Font = backupfont;
                             dd.Enabled = false;
@@ -208,9 +206,9 @@ namespace AgOpenGPS
                         aa.BackColor = Color.Bisque;
                         aa.Anchor = System.Windows.Forms.AnchorStyles.None;
 
-                        Control dd = tableLayoutPanel1.GetControlFromPosition(3-1, i - position);
+                        Control dd = tableLayoutPanel1.GetControlFromPosition(3 - 1, i - position);
                         dd.Visible = false;
-                        Control ee = tableLayoutPanel1.GetControlFromPosition(4-1, i - position);
+                        Control ee = tableLayoutPanel1.GetControlFromPosition(4 - 1, i - position);
                         ee.Visible = false;
 
                         //delete rest of buttons
@@ -390,7 +388,7 @@ namespace AgOpenGPS
         private void btnOpenGoogleEarth_Click(object sender, EventArgs e)
         {
             //save new copy of kml with selected flag and view in GoogleEarth
-          
+
             mf.FileMakeKMLFromCurrentPosition(mf.pn.latitude, mf.pn.longitude);
             System.Diagnostics.Process.Start(mf.fieldsDirectory + mf.currentFieldDirectory + "\\CurrentPosition.KML");
             Close();

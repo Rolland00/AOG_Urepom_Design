@@ -29,7 +29,7 @@ namespace AgOpenGPS
 
         private bool isWorkSwEn, isWorkSwActiveLow, isWorkSwitchManual;
 
-        private readonly double metImp2m, m2MetImp, maxWidth ;
+        private readonly double metImp2m, m2MetImp, maxWidth;
         private double cutoffSpeed, cutoffMetricImperial;
 
         //constructor
@@ -156,7 +156,7 @@ namespace AgOpenGPS
             temp = (decimal)toolTurnOffDelay;
             if (nudTurnOffDelay.CheckValue(ref temp)) nudTurnOffDelay.BackColor = System.Drawing.Color.OrangeRed;
             toolTurnOffDelay = (double)temp;
-            
+
             toolLookAheadOff = Properties.Vehicle.Default.setVehicle_toolLookAheadOff;
             temp = (decimal)toolLookAheadOff;
             if (nudLookAheadOff.CheckValue(ref temp)) nudLookAheadOff.BackColor = System.Drawing.Color.OrangeRed;
@@ -174,7 +174,7 @@ namespace AgOpenGPS
 
             numberOfSections = Properties.Vehicle.Default.setVehicle_numSections;
             temp = numberOfSections;
-            
+
             isToolBehindPivot = Properties.Vehicle.Default.setTool_isToolBehindPivot;
             isToolTrailing = Properties.Vehicle.Default.setTool_isToolTrailing;
             isToolTBT = Properties.Vehicle.Default.setTool_isToolTBT;
@@ -390,10 +390,10 @@ namespace AgOpenGPS
             mf.tool.toolOverlap = toolOverlap;
             Properties.Vehicle.Default.setVehicle_toolOverlap = mf.tool.toolOverlap;
 
-            
+
             mf.tool.lookAheadOnSetting = toolLookAheadOn;
             Properties.Vehicle.Default.setVehicle_toolLookAheadOn = mf.tool.lookAheadOnSetting;
-           
+
             mf.tool.lookAheadOffSetting = toolLookAheadOff;
             Properties.Vehicle.Default.setVehicle_toolLookAheadOff = mf.tool.lookAheadOffSetting;
 
@@ -496,7 +496,7 @@ namespace AgOpenGPS
         {
             cutoffSpeed = (double)nudCutoffSpeed.Value;
         }
-               
+
         private void NudHitchLength_Enter(object sender, EventArgs e)
         {
             mf.KeypadToNUD((NumericUpDown)sender);
@@ -774,15 +774,15 @@ namespace AgOpenGPS
 
         private void CboxNumSections_SelectedIndexChanged(object sender, EventArgs e)
         {
-            numberOfSections = cboxNumSections.SelectedIndex+1;
+            numberOfSections = cboxNumSections.SelectedIndex + 1;
 
             decimal wide = nudDefaultSectionWidth.Value;
 
-            
+
             if (mf.isMetric)
             {
-            if (numberOfSections * wide > 4800) wide = 99;
-                
+                if (numberOfSections * wide > 4800) wide = 99;
+
             }
             else
             {
@@ -1672,7 +1672,7 @@ namespace AgOpenGPS
                         sectionPosition12 = sectionPosition11 + sectionWidth11;
                         sectionPosition13 = sectionPosition12 + sectionWidth12;
                         sectionPosition14 = sectionPosition13 + sectionWidth13;
-                        sectionPosition15 = sectionPosition14 + sectionWidth14; 
+                        sectionPosition15 = sectionPosition14 + sectionWidth14;
                         sectionPosition16 = 0;
                         sectionPosition17 = 0;
                         break;
@@ -1680,7 +1680,7 @@ namespace AgOpenGPS
                 case 15:
                     {
                         sectionPosition9 = sectionWidth8 / 2.0M;
-                        sectionPosition8 = sectionPosition9  * -1;;
+                        sectionPosition8 = sectionPosition9 * -1; ;
                         sectionPosition7 = sectionPosition8 - sectionWidth7;
                         sectionPosition6 = sectionPosition7 - sectionWidth6;
                         sectionPosition5 = sectionPosition6 - sectionWidth5;
@@ -1718,7 +1718,7 @@ namespace AgOpenGPS
                         sectionPosition13 = sectionPosition12 + sectionWidth12;
                         sectionPosition14 = sectionPosition13 + sectionWidth13;
                         sectionPosition15 = sectionPosition14 + sectionWidth14;
-                        sectionPosition16 = sectionPosition15 + sectionWidth15; 
+                        sectionPosition16 = sectionPosition15 + sectionWidth15;
                         sectionPosition17 = sectionPosition16 + sectionWidth16;
                         break;
                     }

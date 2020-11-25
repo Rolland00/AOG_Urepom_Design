@@ -3,8 +3,6 @@ using OpenTK.Graphics.OpenGL;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Globalization;
-using System.IO;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -19,7 +17,7 @@ namespace AgOpenGPS
 
         private bool isA, isSet;
         public double headWidth = 0;
-        private int A, B, C, D, E, start = 99999, end = 99999;     
+        private int A, B, C, D, E, start = 99999, end = 99999;
 
         public vec3 pint = new vec3(0.0, 1.0, 0.0);
 
@@ -246,7 +244,7 @@ namespace AgOpenGPS
             end = 99999;
             RebuildHeadLineTemplate();
         }
-        
+
         private void btnMakeFixedHeadland_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < headLineTemplate.Count; i++)
@@ -287,7 +285,7 @@ namespace AgOpenGPS
             else lblStart.Text = start.ToString();
 
             if (end == 99999)
-                 lblEnd.Text = "--";
+                lblEnd.Text = "--";
             else lblEnd.Text = end.ToString();
 
             //draw all the boundaries
@@ -644,7 +642,7 @@ namespace AgOpenGPS
             {
                 int j = i + 1;
                 if (j == bndCount) j = 0;
-                double distanceSq = glm.DistanceSquared(headLineTemplate[i].easting, headLineTemplate[i].northing, 
+                double distanceSq = glm.DistanceSquared(headLineTemplate[i].easting, headLineTemplate[i].northing,
                                                 headLineTemplate[j].easting, headLineTemplate[j].northing);
                 if (distanceSq > 2.3)
                 {
@@ -670,7 +668,7 @@ namespace AgOpenGPS
         {
             if (start != 99999)
             {
-                if (start > 0 && start < end-1) start--;
+                if (start > 0 && start < end - 1) start--;
             }
         }
 
@@ -678,7 +676,7 @@ namespace AgOpenGPS
         {
             if (start != 99999)
             {
-                if (start < end-2) start++;
+                if (start < end - 2) start++;
             }
         }
 
@@ -686,15 +684,15 @@ namespace AgOpenGPS
         {
             if (end != 99999)
             {
-                if (end-2 > start) end--;
+                if (end - 2 > start) end--;
             }
         }
 
         private void btnEndUp_MouseDown(object sender, MouseEventArgs e)
         {
-            if (end != 99999) 
+            if (end != 99999)
             {
-                if (end-1 > start && end < hdx2.Length) end++;
+                if (end - 1 > start && end < hdx2.Length) end++;
             }
         }
 

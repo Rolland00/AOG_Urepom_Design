@@ -64,9 +64,9 @@ namespace AgOpenGPS
             Properties.Settings.Default.setF_minFixStep = mf.minFixStepDist;
 
             Properties.Settings.Default.setIMU_isHeadingCorrectionFromAutoSteer = rbtnHeadingCorrAutoSteer.Checked;
-            mf.ahrs.isHeadingCorrectionFromAutoSteer =  rbtnHeadingCorrAutoSteer.Checked;
+            mf.ahrs.isHeadingCorrectionFromAutoSteer = rbtnHeadingCorrAutoSteer.Checked;
 
-            Properties.Settings.Default.setIMU_isHeadingCorrectionFromBrick =  rbtnHeadingCorrBrick.Checked;
+            Properties.Settings.Default.setIMU_isHeadingCorrectionFromBrick = rbtnHeadingCorrBrick.Checked;
             mf.ahrs.isHeadingCorrectionFromBrick = rbtnHeadingCorrBrick.Checked;
 
             //Properties.Settings.Default.setIMU_isHeadingCorrectionFromExtUDP = rbtnHeadingCorrUDP.Checked;
@@ -89,7 +89,7 @@ namespace AgOpenGPS
             mf.ahrs.fusionWeight = (double)(hsbarFusion.Value) * 0.01;
 
             Properties.Settings.Default.Save();
-            Properties.Vehicle.Default.Save();            
+            Properties.Vehicle.Default.Save();
 
             //back to FormGPS
             DialogResult = DialogResult.OK;
@@ -105,7 +105,7 @@ namespace AgOpenGPS
         private void FormDisplaySettings_Load(object sender, EventArgs e)
         {
             cboxNMEAHz.Text = Properties.Settings.Default.setPort_NMEAHz.ToString();
-            
+
             if (mf.timerSim.Enabled)
             {
                 cboxNMEAHz.Text = "10";
@@ -212,9 +212,9 @@ namespace AgOpenGPS
 
         private void cboxNMEAHz_SelectedIndexChanged(object sender, EventArgs e)
         {
-                Properties.Settings.Default.setPort_NMEAHz = Convert.ToInt32(cboxNMEAHz.SelectedItem);
-                Properties.Settings.Default.Save();
-                mf.fixUpdateHz = Properties.Settings.Default.setPort_NMEAHz;
+            Properties.Settings.Default.setPort_NMEAHz = Convert.ToInt32(cboxNMEAHz.SelectedItem);
+            Properties.Settings.Default.Save();
+            mf.fixUpdateHz = Properties.Settings.Default.setPort_NMEAHz;
         }
 
         private void tboxTinkerUID_Click(object sender, EventArgs e)

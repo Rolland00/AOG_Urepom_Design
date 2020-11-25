@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenTK.Graphics.OpenGL;
+﻿using OpenTK.Graphics.OpenGL;
+using System;
 
 
 namespace AgOpenGPS
@@ -56,7 +52,7 @@ namespace AgOpenGPS
         //Constructor called by FormGPS
         public CTool(FormGPS _f)
         {
-            
+
             mf = _f;
 
             //from settings grab the vehicle specifics
@@ -222,7 +218,7 @@ namespace AgOpenGPS
                     //if section is on, green, if off, red color
                     if (mf.section[j].isSectionOn || mf.section[numOfSections].isSectionOn)
                     {
-                        if (mf.section[j].manBtnState == FormGPS.manBtn.Auto )
+                        if (mf.section[j].manBtnState == FormGPS.manBtn.Auto)
                         {
                             GL.Color3(0.0f, 0.9f, 0.0f);
                             //if (mf.section[j].isMappingOn) GL.Color3(0.0f, 0.7f, 0.0f);
@@ -237,7 +233,7 @@ namespace AgOpenGPS
                         GL.Color3(0.7f, 0.2f, 0.2f);
                     }
 
-                    double mid = (((mf.section[j].positionRight+100) - (mf.section[j].positionLeft+100))) / 2 + mf.section[j].positionLeft;
+                    double mid = (((mf.section[j].positionRight + 100) - (mf.section[j].positionLeft + 100))) / 2 + mf.section[j].positionLeft;
 
                     GL.Begin(PrimitiveType.TriangleFan);
                     {

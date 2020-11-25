@@ -243,7 +243,7 @@ namespace AgOpenGPS
             mf.KeypadToNUD((NumericUpDown)sender);
             btnCancel.Focus();
         }
-        
+
         private void NudWheelbase_Enter(object sender, EventArgs e)
         {
             mf.KeypadToNUD((NumericUpDown)sender);

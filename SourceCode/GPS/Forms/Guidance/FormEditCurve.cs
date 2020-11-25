@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -155,7 +148,7 @@ namespace AgOpenGPS
         {
             double dist = mf.tool.toolWidth - mf.tool.toolOverlap;
 
-            mf.curve.MoveABCurve(dist*0.5);
+            mf.curve.MoveABCurve(dist * 0.5);
 
         }
 
@@ -163,7 +156,7 @@ namespace AgOpenGPS
         {
             double dist = mf.tool.toolWidth - mf.tool.toolOverlap;
 
-            mf.curve.MoveABCurve(-dist*0.5);
+            mf.curve.MoveABCurve(-dist * 0.5);
 
         }
     }

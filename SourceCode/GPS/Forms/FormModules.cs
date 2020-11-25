@@ -56,7 +56,7 @@ namespace AgOpenGPS
             lblSectionHiByte.Text = Convert.ToString
                 (mf.mc.machineData[mf.mc.mdSectionControlByteHi], 2).PadLeft(8, '0');
 
-            lblSpd.Text = Convert.ToString (mf.mc.machineData[mf.mc.mdSpeedXFour]);
+            lblSpd.Text = Convert.ToString(mf.mc.machineData[mf.mc.mdSpeedXFour]);
 
             lblUTurn.Text = Convert.ToString
                 (mf.mc.machineData[mf.mc.mdUTurn], 2).PadLeft(8, '0');

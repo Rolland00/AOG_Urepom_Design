@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace AgOpenGPS
+﻿namespace AgOpenGPS
 {
     public class CModuleComm
     {
@@ -211,7 +209,7 @@ namespace AgOpenGPS
             ardSteerConfig[arSet1] = Properties.Vehicle.Default.setArdSteer_setting1;
             ardSteerConfig[arMaxSpd] = Properties.Vehicle.Default.setArdSteer_maxSpeed;
             ardSteerConfig[arMinSpd] = Properties.Vehicle.Default.setArdSteer_minSpeed;
-                byte inc = (byte)(Properties.Vehicle.Default.setArdSteer_inclinometer << 6);
+            byte inc = (byte)(Properties.Vehicle.Default.setArdSteer_inclinometer << 6);
             ardSteerConfig[arIncMaxPulse] = (byte)(inc + (byte)Properties.Vehicle.Default.setArdSteer_maxPulseCounts);
             ardSteerConfig[arAckermanFix] = Properties.Vehicle.Default.setArdSteer_ackermanFix;
             ardSteerConfig[arSet2] = Properties.Vehicle.Default.setArdSteer_setting2;

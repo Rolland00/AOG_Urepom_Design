@@ -313,13 +313,13 @@ namespace AgOpenGPS
         {
             double angleSteer = mf.actualSteerAngleDisp * 0.01;
             lblSteerAngle.Text = mf.SetSteerAngle;
-            lblSteerAngleActual.Text = (mf.actualSteerAngleDisp*0.01).ToString("N1") + "\u00B0";
+            lblSteerAngleActual.Text = (mf.actualSteerAngleDisp * 0.01).ToString("N1") + "\u00B0";
 
             double err = (mf.actualSteerAngleDisp * 0.01 - mf.guidanceLineSteerAngle * 0.01);
             lblError.Text = Math.Abs(err).ToString("N1") + "\u00B0";
             if (err > 0) lblError.ForeColor = Color.DarkRed;
             else lblError.ForeColor = Color.DarkGreen;
-            
+
             lblPWMDisplay.Text = mf.mc.pwmDisplay.ToString();
 
             counter++;

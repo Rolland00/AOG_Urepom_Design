@@ -2,7 +2,6 @@
 
 using AgOpenGPS.Properties;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -86,7 +85,7 @@ namespace AgOpenGPS
             Settings.Default.setDisplay_isStartFullScreen = chkStartFullScreen.Checked;
             Settings.Default.setMenu_isSideGuideLines = mf.isSideGuideLines;
             Settings.Default.setMenu_isLogNMEA = mf.isLogNMEA;
-            mf.isDrawPolygons = chkPolygons.Checked ;
+            mf.isDrawPolygons = chkPolygons.Checked;
             Settings.Default.setMenu_isPureOn = mf.isPureDisplayOn;
             Settings.Default.setMenu_isUTurnAlwaysOn = mf.isUTurnAlwaysOn;
             //ajout max

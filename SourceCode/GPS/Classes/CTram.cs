@@ -1,6 +1,6 @@
-﻿using System;
+﻿using OpenTK.Graphics.OpenGL;
+using System;
 using System.Collections.Generic;
-using OpenTK.Graphics.OpenGL;
 
 namespace AgOpenGPS
 {
@@ -167,7 +167,7 @@ namespace AgOpenGPS
             for (int i = 0; i < outArr.Count; j = i++)
             {
                 if ((outArr[i].northing < testPointv2.northing && outArr[j].northing >= testPointv2.northing)
-                ||  (outArr[j].northing < testPointv2.northing && outArr[i].northing >= testPointv2.northing))
+                || (outArr[j].northing < testPointv2.northing && outArr[i].northing >= testPointv2.northing))
                 {
                     oddNodes ^= ((testPointv2.northing * calcList[i].northing) + calcList[i].easting < testPointv2.easting);
                 }

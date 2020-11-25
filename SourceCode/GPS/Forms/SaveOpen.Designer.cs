@@ -10,7 +10,7 @@ using System.Text;
 
 namespace AgOpenGPS
 {
-    
+
     public partial class FormGPS
     {
         //list of the list of patch data individual triangles for field sections
@@ -265,7 +265,7 @@ namespace AgOpenGPS
                             ABLine.lineArr[i].origin.northing = double.Parse(words[3], CultureInfo.InvariantCulture);
 
                             ABLine.lineArr[i].ref1.easting = ABLine.lineArr[i].origin.easting - (Math.Sin(ABLine.lineArr[i].heading) * 1000.0);
-                            ABLine.lineArr[i].ref1.northing = ABLine.lineArr[i].origin.northing - (Math.Cos(ABLine.lineArr[i].heading) *1000.0);
+                            ABLine.lineArr[i].ref1.northing = ABLine.lineArr[i].origin.northing - (Math.Cos(ABLine.lineArr[i].heading) * 1000.0);
 
                             ABLine.lineArr[i].ref2.easting = ABLine.lineArr[i].origin.easting + (Math.Sin(ABLine.lineArr[i].heading) * 1000.0);
                             ABLine.lineArr[i].ref2.northing = ABLine.lineArr[i].origin.northing + (Math.Cos(ABLine.lineArr[i].heading) * 1000.0);
@@ -450,14 +450,14 @@ namespace AgOpenGPS
                     line = reader.ReadLine(); words = line.Split(',');
 
                     //file version
-                    string []fullVers = words[1].Split('.');
+                    string[] fullVers = words[1].Split('.');
                     string vers = fullVers[0] + fullVers[1];
                     int fileVersion = int.Parse(vers, CultureInfo.InvariantCulture);
 
                     //assembly version
                     string assemblyVersion = Application.ProductVersion.ToString(CultureInfo.InvariantCulture);
                     fullVers = assemblyVersion.Split('.');
-                    int appVersion = int.Parse(fullVers[0]+fullVers[1], CultureInfo.InvariantCulture);
+                    int appVersion = int.Parse(fullVers[0] + fullVers[1], CultureInfo.InvariantCulture);
 
                     if (fileVersion < appVersion)
                     {
@@ -657,15 +657,16 @@ namespace AgOpenGPS
 
                         yt.geoFenceDistance = Properties.Vehicle.Default.set_geoFenceDistance;
                         yt.rowSkipsWidth = Properties.Vehicle.Default.set_youSkipWidth;
+                        yt.youTurnStartOffset = Properties.Vehicle.Default.set_youTurnDistance;
+                        yt.triggerDistanceOffset = Properties.Vehicle.Default.set_youTriggerDistance;
+                        yt.isUsingDubinsTurn = Properties.Vehicle.Default.set_youUseDubins;
+                        mc.isMachineDataSentToAutoSteer = Properties.Vehicle.Default.setVehicle_isMachineControlToAutoSteer;
+
                         //ajout max
                         yt.Alternate_skips = Properties.Vehicle.Default.set_youAlternate_skips;
                         yt.Skips_1 = Properties.Vehicle.Default.set_youSkips_1;
                         yt.Skips_2 = Properties.Vehicle.Default.set_youSkips_2;
                         //fin
-                        yt.youTurnStartOffset = Properties.Vehicle.Default.set_youTurnDistance;
-                        yt.triggerDistanceOffset = Properties.Vehicle.Default.set_youTriggerDistance;
-                        yt.isUsingDubinsTurn = Properties.Vehicle.Default.set_youUseDubins;
-                        mc.isMachineDataSentToAutoSteer = Properties.Vehicle.Default.setVehicle_isMachineControlToAutoSteer;
 
                         mc.autoSteerSettings[mc.ssKp] = Properties.Settings.Default.setAS_Kp;
                         mc.autoSteerSettings[mc.ssLowPWM] = Properties.Settings.Default.setAS_lowSteerPWM;
@@ -713,7 +714,7 @@ namespace AgOpenGPS
                         byte inc = (byte)(Properties.Vehicle.Default.setArdSteer_inclinometer << 6);
                         mc.ardSteerConfig[mc.arIncMaxPulse] = (byte)(inc + (byte)Properties.Vehicle.Default.setArdSteer_maxPulseCounts);
 
-                        mc.ardSteerConfig[mc.arSet2] = Properties.Vehicle.Default.setArdSteer_setting2; 
+                        mc.ardSteerConfig[mc.arSet2] = Properties.Vehicle.Default.setArdSteer_setting2;
                         mc.ardSteerConfig[mc.ar9] = 0;
 
                         mc.ardMachineConfig[mc.amHeaderHi] = 127; //PGN - 32760
@@ -721,7 +722,7 @@ namespace AgOpenGPS
                         mc.ardMachineConfig[mc.amRaiseTime] = Properties.Vehicle.Default.setArdMac_hydRaiseTime;
                         mc.ardMachineConfig[mc.amLowerTime] = Properties.Vehicle.Default.setArdMac_hydLowerTime;
                         mc.ardMachineConfig[mc.amEnableHyd] = Properties.Vehicle.Default.setArdMac_isHydEnabled;
-                        mc.ardMachineConfig[mc.amSet0] = Properties.Vehicle.Default.setArdMac_setting0; 
+                        mc.ardMachineConfig[mc.amSet0] = Properties.Vehicle.Default.setArdMac_setting0;
                         mc.ardMachineConfig[mc.am6] = 0;
                         mc.ardMachineConfig[mc.am7] = 0;
                         mc.ardMachineConfig[mc.am8] = 0;
@@ -870,7 +871,7 @@ namespace AgOpenGPS
             //little show to say saved and where
             var form = new FormTimedMessage(3000, gStr.gsSavedInFolder, toolsDirectory);
             form.Show();
-        }        
+        }
 
         //function to open a previously saved field
         public bool FileOpenTool(string fileName)
@@ -1084,9 +1085,9 @@ namespace AgOpenGPS
         //function that save vehicle and section settings
         public void FileSaveEnvironment(string FileName)
         {
-                envFileName = Path.GetFileNameWithoutExtension(FileName);
-                Properties.Vehicle.Default.setVehicle_envName = envFileName;
-                Properties.Vehicle.Default.Save();
+            envFileName = Path.GetFileNameWithoutExtension(FileName);
+            Properties.Vehicle.Default.setVehicle_envName = envFileName;
+            Properties.Vehicle.Default.Save();
 
             using (StreamWriter writer = new StreamWriter(FileName))
             {
@@ -1111,7 +1112,6 @@ namespace AgOpenGPS
                 writer.WriteLine("IsSkyOn," + Properties.Settings.Default.setMenu_isSkyOn.ToString(CultureInfo.InvariantCulture));
                 writer.WriteLine("IsSpeedoOn," + Properties.Settings.Default.setMenu_isSpeedoOn.ToString(CultureInfo.InvariantCulture));
                 writer.WriteLine("IsUTurnAlwaysOn," + Properties.Settings.Default.setMenu_isUTurnAlwaysOn.ToString(CultureInfo.InvariantCulture));
-                writer.WriteLine("IsSectionButtons," + Properties.Settings.Default.setMenu_isSectionButtons.ToString(CultureInfo.InvariantCulture));
                 writer.WriteLine("IsAutoDayNightModeOn," + Properties.Settings.Default.setDisplay_isAutoDayNight.ToString(CultureInfo.InvariantCulture));
                 writer.WriteLine("StartFullScreen," + Properties.Settings.Default.setDisplay_isStartFullScreen.ToString(CultureInfo.InvariantCulture));
                 writer.WriteLine("IsRTKOn," + Properties.Settings.Default.setGPS_isRTK.ToString(CultureInfo.InvariantCulture));
@@ -1168,10 +1168,10 @@ namespace AgOpenGPS
                 writer.WriteLine("Empty," + "10");
             }
 
-                //little show to say saved and where
-                var form = new FormTimedMessage(3000, gStr.gsSavedInFolder, envDirectory);
-                form.Show();
-            
+            //little show to say saved and where
+            var form = new FormTimedMessage(3000, gStr.gsSavedInFolder, envDirectory);
+            form.Show();
+
         }
 
         //function to open a previously saved field
@@ -1245,8 +1245,6 @@ namespace AgOpenGPS
                         Properties.Settings.Default.setMenu_isSpeedoOn = bool.Parse(words[1]);
                         line = reader.ReadLine(); words = line.Split(',');
                         Properties.Settings.Default.setMenu_isUTurnAlwaysOn = bool.Parse(words[1]);
-                        line = reader.ReadLine(); words = line.Split(',');
-                        Properties.Settings.Default.setMenu_isSectionButtons = bool.Parse(words[1]);
                         line = reader.ReadLine(); words = line.Split(',');
                         Properties.Settings.Default.setDisplay_isAutoDayNight = bool.Parse(words[1]);
 
@@ -1351,7 +1349,7 @@ namespace AgOpenGPS
                     //vehicle is corrupt, reload with all default information
                     Properties.Settings.Default.Reset();
                     Properties.Settings.Default.Save();
-                    MessageBox.Show(gStr.gsProgramWillResetToRecoverPleaseRestart, gStr.gsLoadEnvironment, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show(gStr.gsProgramWillResetToRecoverPleaseRestart, gStr.gsVehicleFileIsCorrupt, MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     Application.Restart();
                     Environment.Exit(0);
                     return DialogResult.Cancel;
@@ -1520,7 +1518,7 @@ namespace AgOpenGPS
                 curve.isCurveSet = false;
                 curve.refList?.Clear();
             }
-            
+
             //section patches
             fileAndDirectory = fieldsDirectory + currentFieldDirectory + "\\Sections.txt";
             if (!File.Exists(fileAndDirectory))
@@ -1594,10 +1592,10 @@ namespace AgOpenGPS
                 //was old version prior to v4
                 if (isv3)
                 {
-                        //Append the current list to the field file
-                        using (StreamWriter writer = new StreamWriter((fieldsDirectory + currentFieldDirectory + "\\Sections.txt"), false))
-                        {
-                        }
+                    //Append the current list to the field file
+                    using (StreamWriter writer = new StreamWriter((fieldsDirectory + currentFieldDirectory + "\\Sections.txt"), false))
+                    {
+                    }
                 }
             }
 
@@ -1610,7 +1608,7 @@ namespace AgOpenGPS
                 form.Show();
                 //return;
             }
-            
+
             //Points in Patch followed by easting, heading, northing, altitude
             else
             {
@@ -1733,7 +1731,7 @@ namespace AgOpenGPS
 
             //Boundaries
             //Either exit or update running save
-                fileAndDirectory = fieldsDirectory + currentFieldDirectory + "\\Boundary.txt";
+            fileAndDirectory = fieldsDirectory + currentFieldDirectory + "\\Boundary.txt";
             if (!File.Exists(fileAndDirectory))
             {
                 var form = new FormTimedMessage(2000, gStr.gsMissingBoundaryFile, gStr.gsButFieldIsLoaded);
@@ -1884,7 +1882,7 @@ namespace AgOpenGPS
             }
 
             //if (hd.headArr[0].hdLine.Count > 0) hd.isOn = true;
-             hd.isOn = false;
+            hd.isOn = false;
 
             //if (hd.isOn) btnHeadlandOnOff.Image = Properties.Resources.HeadlandOn;
             btnHeadlandOnOff.Image = Properties.Resources.HeadlandOff;
@@ -2047,8 +2045,8 @@ namespace AgOpenGPS
                         writer.WriteLine(count2.ToString(CultureInfo.InvariantCulture));
 
                         for (int i = 0; i < count2; i++)
-                            writer.WriteLine((Math.Round(triList[i].easting,3)).ToString(CultureInfo.InvariantCulture) +
-                                "," + (Math.Round(triList[i].northing,3)).ToString(CultureInfo.InvariantCulture) +
+                            writer.WriteLine((Math.Round(triList[i].easting, 3)).ToString(CultureInfo.InvariantCulture) +
+                                "," + (Math.Round(triList[i].northing, 3)).ToString(CultureInfo.InvariantCulture) +
                                  "," + (Math.Round(triList[i].heading, 3)).ToString(CultureInfo.InvariantCulture));
                     }
                 }
@@ -2151,7 +2149,7 @@ namespace AgOpenGPS
                         for (int i = 0; i < count2; i++)
                         {
                             writer.WriteLine(Math.Round((triList[i].easting), 3).ToString(CultureInfo.InvariantCulture) + "," +
-                                Math.Round(triList[i].northing, 3).ToString(CultureInfo.InvariantCulture)+ "," +
+                                Math.Round(triList[i].northing, 3).ToString(CultureInfo.InvariantCulture) + "," +
                                 Math.Round(triList[i].heading, 3).ToString(CultureInfo.InvariantCulture));
                         }
                     }
@@ -2186,9 +2184,9 @@ namespace AgOpenGPS
                     if (bnd.bndArr[i].bndLine.Count > 0)
                     {
                         for (int j = 0; j < bnd.bndArr[i].bndLine.Count; j++)
-                            writer.WriteLine(Math.Round(bnd.bndArr[i].bndLine[j].easting,3).ToString(CultureInfo.InvariantCulture) + "," +
+                            writer.WriteLine(Math.Round(bnd.bndArr[i].bndLine[j].easting, 3).ToString(CultureInfo.InvariantCulture) + "," +
                                                 Math.Round(bnd.bndArr[i].bndLine[j].northing, 3).ToString(CultureInfo.InvariantCulture) + "," +
-                                                    Math.Round(bnd.bndArr[i].bndLine[j].heading,5).ToString(CultureInfo.InvariantCulture));
+                                                    Math.Round(bnd.bndArr[i].bndLine[j].heading, 5).ToString(CultureInfo.InvariantCulture));
                     }
                 }
             }
@@ -2498,7 +2496,7 @@ namespace AgOpenGPS
 
             }
         }
-                                   
+
         //generate KML file from flag
         public void FileSaveSingleFlagKML(int flagNumber)
         {
@@ -2524,20 +2522,20 @@ namespace AgOpenGPS
 
                 writer.WriteLine(@"<Document>");
 
-                    writer.WriteLine(@"  <Placemark>                                  ");
-                    writer.WriteLine(@"<Style> <IconStyle>");
-                    if (flagPts[flagNumber - 1].color == 0)  //red - xbgr
-                        writer.WriteLine(@"<color>ff4400ff</color>");
-                    if (flagPts[flagNumber - 1].color == 1)  //grn - xbgr
-                        writer.WriteLine(@"<color>ff44ff00</color>");
-                    if (flagPts[flagNumber - 1].color == 2)  //yel - xbgr
-                        writer.WriteLine(@"<color>ff44ffff</color>");
-                    writer.WriteLine(@"</IconStyle> </Style>");
-                    writer.WriteLine(@" <name> " + flagNumber.ToString(CultureInfo.InvariantCulture) + @"</name>");
-                    writer.WriteLine(@"<Point><coordinates> " +
-                                    flagPts[flagNumber-1].longitude.ToString(CultureInfo.InvariantCulture) + "," + flagPts[flagNumber-1].latitude.ToString(CultureInfo.InvariantCulture) + ",0" +
-                                    @"</coordinates> </Point> ");
-                    writer.WriteLine(@"  </Placemark>                                 ");
+                writer.WriteLine(@"  <Placemark>                                  ");
+                writer.WriteLine(@"<Style> <IconStyle>");
+                if (flagPts[flagNumber - 1].color == 0)  //red - xbgr
+                    writer.WriteLine(@"<color>ff4400ff</color>");
+                if (flagPts[flagNumber - 1].color == 1)  //grn - xbgr
+                    writer.WriteLine(@"<color>ff44ff00</color>");
+                if (flagPts[flagNumber - 1].color == 2)  //yel - xbgr
+                    writer.WriteLine(@"<color>ff44ffff</color>");
+                writer.WriteLine(@"</IconStyle> </Style>");
+                writer.WriteLine(@" <name> " + flagNumber.ToString(CultureInfo.InvariantCulture) + @"</name>");
+                writer.WriteLine(@"<Point><coordinates> " +
+                                flagPts[flagNumber - 1].longitude.ToString(CultureInfo.InvariantCulture) + "," + flagPts[flagNumber - 1].latitude.ToString(CultureInfo.InvariantCulture) + ",0" +
+                                @"</coordinates> </Point> ");
+                writer.WriteLine(@"  </Placemark>                                 ");
                 writer.WriteLine(@"</Document>");
                 writer.WriteLine(@"</kml>                                         ");
 
@@ -2683,7 +2681,7 @@ namespace AgOpenGPS
             for (int i = 0; i < flagPts.Count; i++)
             {
                 kml.WriteStartElement("Placemark");
-                kml.WriteElementString("name", "Flag_"+ i.ToString());
+                kml.WriteElementString("name", "Flag_" + i.ToString());
 
                 kml.WriteStartElement("Style");
                 kml.WriteStartElement("IconStyle");
@@ -2698,7 +2696,7 @@ namespace AgOpenGPS
                 kml.WriteEndElement(); //IconStyle
                 kml.WriteEndElement(); //Style
 
-                kml.WriteElementString("name", (i+1).ToString());
+                kml.WriteElementString("name", (i + 1).ToString());
                 kml.WriteStartElement("Point");
                 kml.WriteElementString("coordinates", flagPts[i].longitude.ToString(CultureInfo.InvariantCulture) +
                     "," + flagPts[i].latitude.ToString(CultureInfo.InvariantCulture) + ",0");
@@ -2706,9 +2704,9 @@ namespace AgOpenGPS
                 kml.WriteEndElement(); // <Placemark>
             }
             kml.WriteEndElement(); // <Folder>   
-            //End of Flags
+                                   //End of Flags
 
-                //Boundary  ----------------------------------------------------------------------
+            //Boundary  ----------------------------------------------------------------------
             kml.WriteStartElement("Folder");
             kml.WriteElementString("name", "Boundaries");
 
@@ -2726,7 +2724,7 @@ namespace AgOpenGPS
                 kml.WriteEndElement(); // <LineStyle>
 
                 kml.WriteStartElement("PolyStyle");
-                if (i == 0)   kml.WriteElementString("color", "407f3f55");
+                if (i == 0) kml.WriteElementString("color", "407f3f55");
                 else kml.WriteElementString("color", "703f38f1");
                 kml.WriteEndElement(); // <PloyStyle>
                 kml.WriteEndElement(); //Style
@@ -2785,7 +2783,7 @@ namespace AgOpenGPS
                             kml.WriteElementString("color", collor);
                             //kml.WriteElementString("width", "6");
                             kml.WriteEndElement(); // <LineStyle>
-                            
+
                             kml.WriteStartElement("PolyStyle");
                             kml.WriteElementString("color", collor);
                             kml.WriteEndElement(); // <PloyStyle>
@@ -2795,7 +2793,7 @@ namespace AgOpenGPS
                             kml.WriteElementString("tessellate", "1");
                             kml.WriteStartElement("outerBoundaryIs");
                             kml.WriteStartElement("LinearRing");
-                            
+
                             //coords
                             kml.WriteStartElement("coordinates");
                             secPts = "";

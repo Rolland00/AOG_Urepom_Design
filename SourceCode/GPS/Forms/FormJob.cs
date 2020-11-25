@@ -119,7 +119,7 @@ namespace AgOpenGPS
             {
                 double northingOffset = 0;
                 double eastingOffset = 0;
-                
+
                 string fieldDirectory = Path.GetFileName(dir);
                 string filename = dir + "\\Field.txt";
                 string line;
@@ -224,7 +224,7 @@ namespace AgOpenGPS
                                         {
                                             numFields++;
                                             if (string.IsNullOrEmpty(infieldList))
-                                                infieldList += Path.GetFileName(dir); 
+                                                infieldList += Path.GetFileName(dir);
                                             else
                                                 infieldList += "," + Path.GetFileName(dir);
                                         }

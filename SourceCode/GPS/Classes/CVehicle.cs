@@ -31,7 +31,7 @@ namespace AgOpenGPS
         public double maxAngularVelocity;
         public double treeSpacing;
         public double hydLiftLookAheadTime;
-        
+
         public double hydLiftLookAheadDistanceLeft, hydLiftLookAheadDistanceRight;
 
         public bool isHydLiftOn;
@@ -221,7 +221,7 @@ namespace AgOpenGPS
                         GL.Vertex3(0.0, 0, 0);
                         GL.Color3(0.970, 0.920, 0.20);
                         GL.Vertex3(mf.bnd.createBndOffset, 0, 0);
-                        GL.Vertex3(mf.bnd.createBndOffset*0.75, 0.25, 0);
+                        GL.Vertex3(mf.bnd.createBndOffset * 0.75, 0.25, 0);
                     }
                     GL.End();
 
@@ -237,7 +237,7 @@ namespace AgOpenGPS
                         GL.Vertex3(0.0, 0, 0);
                         GL.Color3(0.970, 0.920, 0.20);
                         GL.Vertex3(-mf.bnd.createBndOffset, 0, 0);
-                        GL.Vertex3(-mf.bnd.createBndOffset*0.75, 0.25, 0);
+                        GL.Vertex3(-mf.bnd.createBndOffset * 0.75, 0.25, 0);
                     }
                     GL.End();
                 }
@@ -261,7 +261,7 @@ namespace AgOpenGPS
             {
                 GL.Color4(0.969, 0.95, 0.9510, 0.87);
                 if (mf.curve.curveNumber < 0)
-                mf.font.DrawTextVehicle(0, wheelbase, (-mf.curve.curveNumber) + "L", 1.5);
+                    mf.font.DrawTextVehicle(0, wheelbase, (-mf.curve.curveNumber) + "L", 1.5);
                 else mf.font.DrawTextVehicle(0, wheelbase, mf.curve.curveNumber.ToString() + "R", 1.5);
             }
             else if (mf.ABLine.isBtnABLineOn && !mf.ct.isContourBtnOn)
@@ -269,7 +269,7 @@ namespace AgOpenGPS
                 GL.Color4(0.96, 0.95, 0.9510, 0.87);
 
                 if (mf.ABLine.passNumber < 0)
-                mf.font.DrawTextVehicle(0, wheelbase, -mf.ABLine.passNumber + "L", 1.5);
+                    mf.font.DrawTextVehicle(0, wheelbase, -mf.ABLine.passNumber + "L", 1.5);
                 else mf.font.DrawTextVehicle(0, wheelbase, mf.ABLine.passNumber.ToString() + "R", 1.5);
             }
 

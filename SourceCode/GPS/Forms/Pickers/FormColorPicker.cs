@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -96,7 +93,7 @@ namespace AgOpenGPS
             if (isUse)
             {
                 useThisColor = btn00.BackColor;
-                UpdateColor(useThisColor);            
+                UpdateColor(useThisColor);
             }
             else
             {
@@ -361,8 +358,8 @@ namespace AgOpenGPS
         }
     }
 }
-            //// From integer
-            //Color color = Color.FromArgb((byte)(iCol >> 24),
-            //                             (byte)(iCol >> 16),
-            //                             (byte)(iCol >> 8),
-            //                             (byte)(iCol));
+//// From integer
+//Color color = Color.FromArgb((byte)(iCol >> 24),
+//                             (byte)(iCol >> 16),
+//                             (byte)(iCol >> 8),
+//                             (byte)(iCol));

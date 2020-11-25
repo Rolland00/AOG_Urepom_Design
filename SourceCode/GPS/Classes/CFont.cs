@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
+﻿using OpenTK.Graphics.OpenGL;
+using System;
 
 namespace AgOpenGPS
 {
@@ -37,9 +29,9 @@ namespace AgOpenGPS
         public void DrawTextVehicle(double x, double y, string text, double size = 1.0)
         {
             GL.PushMatrix();
-            {                    
+            {
                 size *= -mf.camera.camSetDistance;
-                size = Math.Pow(size, 0.8)/800;
+                size = Math.Pow(size, 0.8) / 800;
 
                 //2d
                 if (mf.camera.camPitch > -58)

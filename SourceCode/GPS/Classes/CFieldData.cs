@@ -33,7 +33,7 @@ namespace AgOpenGPS
 
         //Area inside Boundary less inside boundary areas
         public string AreaBoundaryLessInnersHectares
-        { 
+        {
             get
             {
                 if ((areaBoundaryOuterLessInner) < 404048) return (areaBoundaryOuterLessInner * glm.m2ha).ToString("N2");
@@ -90,7 +90,7 @@ namespace AgOpenGPS
         public string WorkedAreaRemainAcres { get { return ((areaBoundaryOuterLessInner - workedAreaTotal) * glm.m2ac).ToString("N2"); } }
 
         //overlap strings          
-        
+
         public string WorkedAreaRemainPercentage
         {
             get
@@ -150,7 +150,7 @@ namespace AgOpenGPS
             else
             {
                 areaOuterBoundary = 0;
-                areaBoundaryOuterLessInner = 0;            
+                areaBoundaryOuterLessInner = 0;
             }
             if (mf.isMetric) mf.btnManualOffOn.Text = AreaBoundaryLessInnersHectares;
             else mf.btnManualOffOn.Text = AreaBoundaryLessInnersAcres;

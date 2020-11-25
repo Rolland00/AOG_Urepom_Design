@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.Windows.Forms;
 
 namespace AgOpenGPS
@@ -172,7 +171,7 @@ namespace AgOpenGPS
             }
 
             nudDistance.Value = (decimal)(mf.tool.toolWidth * 0.5); // 
-            label6.Text = Math.Round((mf.tool.toolWidth * 100),1).ToString();
+            label6.Text = Math.Round((mf.tool.toolWidth * 100), 1).ToString();
             FixLabelsABLine();
             FixLabelsCurve();
         }
@@ -443,9 +442,9 @@ namespace AgOpenGPS
             }
 
             //sin x cos z for endpoints, opposite for additional lines
-            mf.ABLine.lineArr[idx].ref1.easting =   mf.ABLine.lineArr[idx].origin.easting - (Math.Sin(mf.ABLine.lineArr[idx].heading) * 1600.0);
+            mf.ABLine.lineArr[idx].ref1.easting = mf.ABLine.lineArr[idx].origin.easting - (Math.Sin(mf.ABLine.lineArr[idx].heading) * 1600.0);
             mf.ABLine.lineArr[idx].ref1.northing = mf.ABLine.lineArr[idx].origin.northing - (Math.Cos(mf.ABLine.lineArr[idx].heading) * 1600.0);
-            mf.ABLine.lineArr[idx].ref2.easting =  mf.ABLine.lineArr[idx].origin.easting +  (Math.Sin(mf.ABLine.lineArr[idx].heading) * 1600.0);
+            mf.ABLine.lineArr[idx].ref2.easting = mf.ABLine.lineArr[idx].origin.easting + (Math.Sin(mf.ABLine.lineArr[idx].heading) * 1600.0);
             mf.ABLine.lineArr[idx].ref2.northing = mf.ABLine.lineArr[idx].origin.northing + (Math.Cos(mf.ABLine.lineArr[idx].heading) * 1600.0);
 
             //create a name
@@ -497,8 +496,8 @@ namespace AgOpenGPS
             if (start != 99999 || end != 99999) DrawABTouchLine();
 
             //draw the actual built lines
-            if (start == 99999 && end == 99999) 
-            {                
+            if (start == 99999 && end == 99999)
+            {
                 DrawBuiltLines();
             }
 
@@ -612,8 +611,8 @@ namespace AgOpenGPS
                 GL.LineWidth(4.0f);
                 GL.Color3(0.95, 0.0, 0.0);
                 GL.Begin(PrimitiveType.Lines);
-                    GL.Vertex3(arr[A].easting, arr[A].northing, 0);
-                    GL.Vertex3(arr[C].easting, arr[C].northing, 0);
+                GL.Vertex3(arr[A].easting, arr[A].northing, 0);
+                GL.Vertex3(arr[C].easting, arr[C].northing, 0);
                 GL.End();
             }
         }
@@ -625,7 +624,7 @@ namespace AgOpenGPS
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            if (mf.ABLine.numABLineSelected > 0 )
+            if (mf.ABLine.numABLineSelected > 0)
             {
                 mf.ABLine.refPoint1 = mf.ABLine.lineArr[mf.ABLine.numABLineSelected - 1].origin;
                 mf.ABLine.abHeading = mf.ABLine.lineArr[mf.ABLine.numABLineSelected - 1].heading;
@@ -693,7 +692,7 @@ namespace AgOpenGPS
                     mf.btnCurve.Image = Properties.Resources.CurveOff;
                 }
             }
-            
+
             Close();
         }
 

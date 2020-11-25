@@ -168,7 +168,7 @@ namespace AgOpenGPS
                             area = 0;
                         }
                     }
-                    if (area ==0) fileList.Add("No Bndry");
+                    if (area == 0) fileList.Add("No Bndry");
                     else fileList.Add(area.ToString("####.##").PadLeft(10));
                 }
 
@@ -185,7 +185,7 @@ namespace AgOpenGPS
 
             for (int i = 0; i < fileList.Count; i += 3)
             {
-                string[] fieldNames = { fileList[i], fileList[i + 1], fileList[i+2] };
+                string[] fieldNames = { fileList[i], fileList[i + 1], fileList[i + 2] };
                 itm = new ListViewItem(fieldNames);
                 lvLines.Items.Add(itm);
             }

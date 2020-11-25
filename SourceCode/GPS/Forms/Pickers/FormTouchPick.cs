@@ -1,9 +1,7 @@
 ﻿using OpenTK;
 using OpenTK.Graphics.OpenGL;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
@@ -146,7 +144,7 @@ namespace AgOpenGPS
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            
+
             Close();
         }
 

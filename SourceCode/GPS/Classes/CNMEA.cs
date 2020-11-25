@@ -388,29 +388,29 @@ Field	Meaning
                     mf.ahrs.rollX16 = (int)(XeRoll * 16);
                 }
             }
-                //True heading
-                // 0 1 2 3 4 5 6 7 8 9
-                // $PTNL,AVR,145331.50,+35.9990,Yaw,-7.8209,Tilt,-0.4305,Roll,444.232,3,1.2,17 * 03
-                //Field
-                // Meaning
-                //0 Message ID $PTNL,AVR
-                //1 UTC of vector fix
-                //2 Yaw angle, in degrees
-                //3 Yaw
-                //4 Tilt angle, in degrees
-                //5 Tilt
-                //6 Roll angle, in degrees
-                //7 Roll
-                //8 Range, in meters
-                //9 GPS quality indicator:
-                // 0: Fix not available or invalid
-                // 1: Autonomous GPS fix
-                // 2: Differential carrier phase solution RTK(Float)
-                // 3: Differential carrier phase solution RTK(Fix)
-                // 4: Differential code-based solution, DGPS
-                //10 PDOP
-                //11 Number of satellites used in solution
-                //12 The checksum data, always begins with *
+            //True heading
+            // 0 1 2 3 4 5 6 7 8 9
+            // $PTNL,AVR,145331.50,+35.9990,Yaw,-7.8209,Tilt,-0.4305,Roll,444.232,3,1.2,17 * 03
+            //Field
+            // Meaning
+            //0 Message ID $PTNL,AVR
+            //1 UTC of vector fix
+            //2 Yaw angle, in degrees
+            //3 Yaw
+            //4 Tilt angle, in degrees
+            //5 Tilt
+            //6 Roll angle, in degrees
+            //7 Roll
+            //8 Range, in meters
+            //9 GPS quality indicator:
+            // 0: Fix not available or invalid
+            // 1: Autonomous GPS fix
+            // 2: Differential carrier phase solution RTK(Float)
+            // 3: Differential carrier phase solution RTK(Fix)
+            // 4: Differential code-based solution, DGPS
+            //10 PDOP
+            //11 Number of satellites used in solution
+            //12 The checksum data, always begins with *
 
         }
 
@@ -621,7 +621,7 @@ Field	Meaning
                 if (trasolution != 4) nRoll = 0;
 
                 if (mf.ahrs.isRollFromAVR)
-                mf.ahrs.rollX16 =  (int)(nRoll * 16);
+                    mf.ahrs.rollX16 = (int)(nRoll * 16);
             }
         }
 

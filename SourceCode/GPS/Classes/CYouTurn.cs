@@ -246,9 +246,9 @@ namespace AgOpenGPS
         public void AddSequenceLines(double head)
         {
             vec3 pt;
-            for (int a = 0; a < youTurnStartOffset*2; a++)
+            for (int a = 0; a < youTurnStartOffset * 2; a++)
             {
-                pt.easting = ytList[0].easting + (Math.Sin(head)*0.5);
+                pt.easting = ytList[0].easting + (Math.Sin(head) * 0.5);
                 pt.northing = ytList[0].northing + (Math.Cos(head) * 0.5);
                 pt.heading = ytList[0].heading;
                 ytList.Insert(0, pt);
@@ -256,7 +256,7 @@ namespace AgOpenGPS
 
             int count = ytList.Count;
 
-            for (int i = 1; i <= youTurnStartOffset*2; i++)
+            for (int i = 1; i <= youTurnStartOffset * 2; i++)
             {
                 pt.easting = ytList[count - 1].easting + (Math.Sin(head) * i * 0.5);
                 pt.northing = ytList[count - 1].northing + (Math.Cos(head) * i * 0.5);
@@ -571,7 +571,7 @@ namespace AgOpenGPS
                 //generate the turn points
                 ytList = dubYouTurnPath.GenerateDubins(start, goal);
                 AddSequenceLines(head);
-          
+
                 if (ytList.Count == 0) return false;
                 else youTurnPhase = 1;
             }
@@ -648,7 +648,7 @@ namespace AgOpenGPS
             }
             return true;
         }
-      
+
         public bool BuildABLinePatternYouTurn(bool isTurnRight)
         {
             double headAB = mf.ABLine.abHeading;
@@ -1378,11 +1378,11 @@ namespace AgOpenGPS
         //something went seriously wrong so reset everything
         public void ResetYouTurn()
         {
-            
+
             //fix you turn
             isYouTurnTriggered = false;
             ytList?.Clear();
-   
+
             ResetCreatedYouTurn();
             turnDistanceAdjuster = 0;
             mf.isBoundAlarming = false;

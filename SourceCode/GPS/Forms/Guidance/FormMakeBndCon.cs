@@ -14,6 +14,9 @@ namespace AgOpenGPS
 
             lblHz.Text = gStr.gsPass;
             label1.Text = gStr.gsSpacing;
+            //ajout max
+            deleteContourPaths_btn.Text = gStr.gsResetAll;
+            //fin
 
             this.Text = gStr.gsMakeBoundaryContours;
 
@@ -49,5 +52,17 @@ namespace AgOpenGPS
         {
             btnCancel.Focus();
         }
+
+        //ajout max
+
+        private void deleteContourPaths_btn_Click(object sender, System.EventArgs e)
+        {
+            //FileCreateContour();
+            mf.ct.stripList?.Clear();
+            mf.ct.ptList?.Clear();
+            mf.ct.ctList?.Clear();
+            mf.contourSaveList?.Clear();
+        }
+        //fin
     }
 }
